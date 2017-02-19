@@ -16,7 +16,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: cliente; Type: TABLE; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: cliente; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE cliente (
@@ -28,38 +28,38 @@ CREATE TABLE cliente (
 );
 
 
-ALTER TABLE public.cliente OWNER TO isatixor_gestionprana;
+ALTER TABLE public.cliente OWNER TO postgres;
 
 --
--- Name: TABLE cliente; Type: COMMENT; Schema: public; Owner: isatixor_gestionprana
+-- Name: TABLE cliente; Type: COMMENT; Schema: public; Owner: postgres
 --
 
 COMMENT ON TABLE cliente IS 'almacena los datos de los clientes';
 
 
 --
--- Name: COLUMN cliente.rut; Type: COMMENT; Schema: public; Owner: isatixor_gestionprana
+-- Name: COLUMN cliente.rut; Type: COMMENT; Schema: public; Owner: postgres
 --
 
 COMMENT ON COLUMN cliente.rut IS 'rut del cliente';
 
 
 --
--- Name: COLUMN cliente.dv; Type: COMMENT; Schema: public; Owner: isatixor_gestionprana
+-- Name: COLUMN cliente.dv; Type: COMMENT; Schema: public; Owner: postgres
 --
 
 COMMENT ON COLUMN cliente.dv IS 'dígito verificador';
 
 
 --
--- Name: COLUMN cliente.nombre_rzn_social; Type: COMMENT; Schema: public; Owner: isatixor_gestionprana
+-- Name: COLUMN cliente.nombre_rzn_social; Type: COMMENT; Schema: public; Owner: postgres
 --
 
 COMMENT ON COLUMN cliente.nombre_rzn_social IS 'nombre o razon social';
 
 
 --
--- Name: contacto; Type: TABLE; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: contacto; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE contacto (
@@ -73,10 +73,10 @@ CREATE TABLE contacto (
 );
 
 
-ALTER TABLE public.contacto OWNER TO isatixor_gestionprana;
+ALTER TABLE public.contacto OWNER TO postgres;
 
 --
--- Name: cotizacion; Type: TABLE; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: cotizacion; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE cotizacion (
@@ -92,10 +92,10 @@ CREATE TABLE cotizacion (
 );
 
 
-ALTER TABLE public.cotizacion OWNER TO isatixor_gestionprana;
+ALTER TABLE public.cotizacion OWNER TO postgres;
 
 --
--- Name: cotizacion_cliente; Type: SEQUENCE; Schema: public; Owner: isatixor_gestionprana
+-- Name: cotizacion_cliente; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE cotizacion_cliente
@@ -106,17 +106,17 @@ CREATE SEQUENCE cotizacion_cliente
     CACHE 1;
 
 
-ALTER TABLE public.cotizacion_cliente OWNER TO isatixor_gestionprana;
+ALTER TABLE public.cotizacion_cliente OWNER TO postgres;
 
 --
--- Name: cotizacion_cliente; Type: SEQUENCE SET; Schema: public; Owner: isatixor_gestionprana
+-- Name: cotizacion_cliente; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('cotizacion_cliente', 91, true);
 
 
 --
--- Name: cotizacion_producto; Type: TABLE; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: cotizacion_producto; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE cotizacion_producto (
@@ -127,10 +127,10 @@ CREATE TABLE cotizacion_producto (
 );
 
 
-ALTER TABLE public.cotizacion_producto OWNER TO isatixor_gestionprana;
+ALTER TABLE public.cotizacion_producto OWNER TO postgres;
 
 --
--- Name: despacho; Type: TABLE; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: despacho; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE despacho (
@@ -139,10 +139,10 @@ CREATE TABLE despacho (
 );
 
 
-ALTER TABLE public.despacho OWNER TO isatixor_gestionprana;
+ALTER TABLE public.despacho OWNER TO postgres;
 
 --
--- Name: devolucion_envase; Type: TABLE; Schema: public; Owner: isatixor; Tablespace: 
+-- Name: devolucion_envase; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE devolucion_envase (
@@ -155,10 +155,10 @@ CREATE TABLE devolucion_envase (
 );
 
 
-ALTER TABLE public.devolucion_envase OWNER TO isatixor;
+ALTER TABLE public.devolucion_envase OWNER TO postgres;
 
 --
--- Name: direccion; Type: TABLE; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: direccion; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE direccion (
@@ -171,10 +171,10 @@ CREATE TABLE direccion (
 );
 
 
-ALTER TABLE public.direccion OWNER TO isatixor_gestionprana;
+ALTER TABLE public.direccion OWNER TO postgres;
 
 --
--- Name: pedido; Type: TABLE; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: pedido; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE pedido (
@@ -189,10 +189,10 @@ CREATE TABLE pedido (
 );
 
 
-ALTER TABLE public.pedido OWNER TO isatixor_gestionprana;
+ALTER TABLE public.pedido OWNER TO postgres;
 
 --
--- Name: pedido_producto; Type: TABLE; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: pedido_producto; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE pedido_producto (
@@ -204,10 +204,10 @@ CREATE TABLE pedido_producto (
 );
 
 
-ALTER TABLE public.pedido_producto OWNER TO isatixor_gestionprana;
+ALTER TABLE public.pedido_producto OWNER TO postgres;
 
 --
--- Name: pedido_producto_cantidad_seq; Type: SEQUENCE; Schema: public; Owner: isatixor_gestionprana
+-- Name: pedido_producto_cantidad_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE pedido_producto_cantidad_seq
@@ -218,24 +218,24 @@ CREATE SEQUENCE pedido_producto_cantidad_seq
     CACHE 1;
 
 
-ALTER TABLE public.pedido_producto_cantidad_seq OWNER TO isatixor_gestionprana;
+ALTER TABLE public.pedido_producto_cantidad_seq OWNER TO postgres;
 
 --
--- Name: pedido_producto_cantidad_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: isatixor_gestionprana
+-- Name: pedido_producto_cantidad_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE pedido_producto_cantidad_seq OWNED BY pedido_producto.cantidad;
 
 
 --
--- Name: pedido_producto_cantidad_seq; Type: SEQUENCE SET; Schema: public; Owner: isatixor_gestionprana
+-- Name: pedido_producto_cantidad_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('pedido_producto_cantidad_seq', 1, false);
 
 
 --
--- Name: pedido_seq; Type: SEQUENCE; Schema: public; Owner: isatixor_gestionprana
+-- Name: pedido_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE pedido_seq
@@ -246,17 +246,17 @@ CREATE SEQUENCE pedido_seq
     CACHE 1;
 
 
-ALTER TABLE public.pedido_seq OWNER TO isatixor_gestionprana;
+ALTER TABLE public.pedido_seq OWNER TO postgres;
 
 --
--- Name: pedido_seq; Type: SEQUENCE SET; Schema: public; Owner: isatixor_gestionprana
+-- Name: pedido_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('pedido_seq', 21, true);
 
 
 --
--- Name: perfil; Type: TABLE; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: perfil; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE perfil (
@@ -266,10 +266,10 @@ CREATE TABLE perfil (
 );
 
 
-ALTER TABLE public.perfil OWNER TO isatixor_gestionprana;
+ALTER TABLE public.perfil OWNER TO postgres;
 
 --
--- Name: perfil_id_seq; Type: SEQUENCE; Schema: public; Owner: isatixor_gestionprana
+-- Name: perfil_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE perfil_id_seq
@@ -280,24 +280,24 @@ CREATE SEQUENCE perfil_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.perfil_id_seq OWNER TO isatixor_gestionprana;
+ALTER TABLE public.perfil_id_seq OWNER TO postgres;
 
 --
--- Name: perfil_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: isatixor_gestionprana
+-- Name: perfil_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE perfil_id_seq OWNED BY perfil.id;
 
 
 --
--- Name: perfil_id_seq; Type: SEQUENCE SET; Schema: public; Owner: isatixor_gestionprana
+-- Name: perfil_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('perfil_id_seq', 4, true);
 
 
 --
--- Name: perfil_menu; Type: TABLE; Schema: public; Owner: isatixor; Tablespace: 
+-- Name: perfil_menu; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE perfil_menu (
@@ -307,10 +307,10 @@ CREATE TABLE perfil_menu (
 );
 
 
-ALTER TABLE public.perfil_menu OWNER TO isatixor;
+ALTER TABLE public.perfil_menu OWNER TO postgres;
 
 --
--- Name: perfil_submenu; Type: TABLE; Schema: public; Owner: isatixor; Tablespace: 
+-- Name: perfil_submenu; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE perfil_submenu (
@@ -320,10 +320,10 @@ CREATE TABLE perfil_submenu (
 );
 
 
-ALTER TABLE public.perfil_submenu OWNER TO isatixor;
+ALTER TABLE public.perfil_submenu OWNER TO postgres;
 
 --
--- Name: producto; Type: TABLE; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: producto; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE producto (
@@ -333,10 +333,10 @@ CREATE TABLE producto (
 );
 
 
-ALTER TABLE public.producto OWNER TO isatixor_gestionprana;
+ALTER TABLE public.producto OWNER TO postgres;
 
 --
--- Name: solicitud_cotizacion; Type: TABLE; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: solicitud_cotizacion; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE solicitud_cotizacion (
@@ -350,10 +350,10 @@ CREATE TABLE solicitud_cotizacion (
 );
 
 
-ALTER TABLE public.solicitud_cotizacion OWNER TO isatixor_gestionprana;
+ALTER TABLE public.solicitud_cotizacion OWNER TO postgres;
 
 --
--- Name: telefono; Type: TABLE; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: telefono; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE telefono (
@@ -363,10 +363,10 @@ CREATE TABLE telefono (
 );
 
 
-ALTER TABLE public.telefono OWNER TO isatixor_gestionprana;
+ALTER TABLE public.telefono OWNER TO postgres;
 
 --
--- Name: usuario; Type: TABLE; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: usuario; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
 CREATE TABLE usuario (
@@ -378,10 +378,10 @@ CREATE TABLE usuario (
 );
 
 
-ALTER TABLE public.usuario OWNER TO isatixor_gestionprana;
+ALTER TABLE public.usuario OWNER TO postgres;
 
 --
--- Name: usuarios_id_seq; Type: SEQUENCE; Schema: public; Owner: isatixor_gestionprana
+-- Name: usuarios_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE usuarios_id_seq
@@ -392,38 +392,38 @@ CREATE SEQUENCE usuarios_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.usuarios_id_seq OWNER TO isatixor_gestionprana;
+ALTER TABLE public.usuarios_id_seq OWNER TO postgres;
 
 --
--- Name: usuarios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: isatixor_gestionprana
+-- Name: usuarios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE usuarios_id_seq OWNED BY usuario.id;
 
 
 --
--- Name: usuarios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: isatixor_gestionprana
+-- Name: usuarios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('usuarios_id_seq', 2, true);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: isatixor_gestionprana
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY perfil ALTER COLUMN id SET DEFAULT nextval('perfil_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: isatixor_gestionprana
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY usuario ALTER COLUMN id SET DEFAULT nextval('usuarios_id_seq'::regclass);
 
 
 --
--- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: isatixor_gestionprana
+-- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO cliente VALUES (16536391, '4', 'francisco vergara', NULL, NULL);
@@ -446,7 +446,7 @@ INSERT INTO cliente VALUES (7777777, '7', 'humbertito', 'humer', 7777);
 
 
 --
--- Data for Name: contacto; Type: TABLE DATA; Schema: public; Owner: isatixor_gestionprana
+-- Data for Name: contacto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO contacto VALUES ('fhdg', 'fdgh@fdg', 'contraseña', 345345, 4, '5', 4356);
@@ -473,7 +473,7 @@ INSERT INTO contacto VALUES ('gil gil', 'sdasdasewd@sss.com', 'contraseña', 777
 
 
 --
--- Data for Name: cotizacion; Type: TABLE DATA; Schema: public; Owner: isatixor_gestionprana
+-- Data for Name: cotizacion; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO cotizacion VALUES (1, '2016-07-22', '2016-07-22', 'ret', 1, '2', 'ergd', 'sdfg', 'si');
@@ -481,13 +481,13 @@ INSERT INTO cotizacion VALUES (3, '2016-07-25', '2016-07-25', 'asdf', 3, '2', 'd
 
 
 --
--- Data for Name: cotizacion_producto; Type: TABLE DATA; Schema: public; Owner: isatixor_gestionprana
+-- Data for Name: cotizacion_producto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: despacho; Type: TABLE DATA; Schema: public; Owner: isatixor_gestionprana
+-- Data for Name: despacho; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO despacho VALUES (2, 1);
@@ -505,13 +505,13 @@ INSERT INTO despacho VALUES (21, 1);
 
 
 --
--- Data for Name: devolucion_envase; Type: TABLE DATA; Schema: public; Owner: isatixor
+-- Data for Name: devolucion_envase; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: direccion; Type: TABLE DATA; Schema: public; Owner: isatixor_gestionprana
+-- Data for Name: direccion; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO direccion VALUES (345345, 'hdfghd', '45', '45', 'dfgh', 'dfgh');
@@ -529,7 +529,7 @@ INSERT INTO direccion VALUES (7777777, 'dffdddd', '34', '4', 'gg', 'gg');
 
 
 --
--- Data for Name: pedido; Type: TABLE DATA; Schema: public; Owner: isatixor_gestionprana
+-- Data for Name: pedido; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO pedido VALUES (6, 23423423, '2016-08-08 17:54:49.70078', '2016-08-30 00:00:00', NULL, NULL, NULL, 'pendiente');
@@ -556,7 +556,7 @@ INSERT INTO pedido VALUES (21, 3425523, '2017-02-09 19:43:44.239955', '2017-02-1
 
 
 --
--- Data for Name: pedido_producto; Type: TABLE DATA; Schema: public; Owner: isatixor_gestionprana
+-- Data for Name: pedido_producto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO pedido_producto VALUES (2, 2400.00, 34, 1, NULL);
@@ -591,7 +591,7 @@ INSERT INTO pedido_producto VALUES (21, 2400.00, 45, 1, ' ');
 
 
 --
--- Data for Name: perfil; Type: TABLE DATA; Schema: public; Owner: isatixor_gestionprana
+-- Data for Name: perfil; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO perfil VALUES (1, 'administrador', 'administrador del sistema');
@@ -599,7 +599,7 @@ INSERT INTO perfil VALUES (2, 'despachador', 'despachador de pedidos');
 
 
 --
--- Data for Name: perfil_menu; Type: TABLE DATA; Schema: public; Owner: isatixor
+-- Data for Name: perfil_menu; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO perfil_menu VALUES (0, 1, '<i class="icon-pointer"></i> Herramientas');
@@ -609,13 +609,13 @@ INSERT INTO perfil_menu VALUES (1, 2, '<a href="#" title="Maps">
 
 
 --
--- Data for Name: perfil_submenu; Type: TABLE DATA; Schema: public; Owner: isatixor
+-- Data for Name: perfil_submenu; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: producto; Type: TABLE DATA; Schema: public; Owner: isatixor_gestionprana
+-- Data for Name: producto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO producto VALUES (2, 'Maquina FC', 'maquina frio calor');
@@ -624,7 +624,7 @@ INSERT INTO producto VALUES (1, 'Botellon 20', 'botellon retornable 20 litros de
 
 
 --
--- Data for Name: solicitud_cotizacion; Type: TABLE DATA; Schema: public; Owner: isatixor_gestionprana
+-- Data for Name: solicitud_cotizacion; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO solicitud_cotizacion VALUES (22, 'juan pablo baez alfaro', 'jbaezalfaro@gmail.com', '9968493959', 'Buenas tarde 
@@ -792,13 +792,13 @@ INSERT INTO solicitud_cotizacion VALUES (91, 'claudio reyes', 'claudioreyes2810@
 
 
 --
--- Data for Name: telefono; Type: TABLE DATA; Schema: public; Owner: isatixor_gestionprana
+-- Data for Name: telefono; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: isatixor_gestionprana
+-- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO usuario VALUES (1, 'francisco vergara', 'francisco@isatix.org', 'lalola', '1,2');
@@ -808,7 +808,7 @@ INSERT INTO usuario VALUES (4, 'yyyyyy', 'francisco@isatix.org', 'lalola', '1,2,
 
 
 --
--- Name: cliente_pkey; Type: CONSTRAINT; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: cliente_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
 ALTER TABLE ONLY cliente
@@ -816,7 +816,7 @@ ALTER TABLE ONLY cliente
 
 
 --
--- Name: contacto_pkey; Type: CONSTRAINT; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: contacto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
 ALTER TABLE ONLY contacto
@@ -824,7 +824,7 @@ ALTER TABLE ONLY contacto
 
 
 --
--- Name: cotizacion_pkey; Type: CONSTRAINT; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: cotizacion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
 ALTER TABLE ONLY cotizacion
@@ -832,7 +832,7 @@ ALTER TABLE ONLY cotizacion
 
 
 --
--- Name: pedido_pkey; Type: CONSTRAINT; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: pedido_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
 ALTER TABLE ONLY pedido
@@ -840,7 +840,7 @@ ALTER TABLE ONLY pedido
 
 
 --
--- Name: producto_pkey; Type: CONSTRAINT; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: producto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
 ALTER TABLE ONLY producto
@@ -848,7 +848,7 @@ ALTER TABLE ONLY producto
 
 
 --
--- Name: solicitud_cotizacion_pkey; Type: CONSTRAINT; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: solicitud_cotizacion_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
 ALTER TABLE ONLY solicitud_cotizacion
@@ -856,7 +856,7 @@ ALTER TABLE ONLY solicitud_cotizacion
 
 
 --
--- Name: usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: isatixor_gestionprana; Tablespace: 
+-- Name: usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
 ALTER TABLE ONLY usuario
@@ -864,7 +864,7 @@ ALTER TABLE ONLY usuario
 
 
 --
--- Name: cotizacion_producto_id_cotizacion_fkey; Type: FK CONSTRAINT; Schema: public; Owner: isatixor_gestionprana
+-- Name: cotizacion_producto_id_cotizacion_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY cotizacion_producto
@@ -872,7 +872,7 @@ ALTER TABLE ONLY cotizacion_producto
 
 
 --
--- Name: cotizacion_producto_id_producto_fkey; Type: FK CONSTRAINT; Schema: public; Owner: isatixor_gestionprana
+-- Name: cotizacion_producto_id_producto_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY cotizacion_producto
@@ -880,7 +880,7 @@ ALTER TABLE ONLY cotizacion_producto
 
 
 --
--- Name: direccion_rut_cliente_fkey; Type: FK CONSTRAINT; Schema: public; Owner: isatixor_gestionprana
+-- Name: direccion_rut_cliente_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY direccion
@@ -888,7 +888,7 @@ ALTER TABLE ONLY direccion
 
 
 --
--- Name: pedido_producto_id_pedido_fkey; Type: FK CONSTRAINT; Schema: public; Owner: isatixor_gestionprana
+-- Name: pedido_producto_id_pedido_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY pedido_producto
@@ -896,7 +896,7 @@ ALTER TABLE ONLY pedido_producto
 
 
 --
--- Name: pedido_producto_id_producto_fkey; Type: FK CONSTRAINT; Schema: public; Owner: isatixor_gestionprana
+-- Name: pedido_producto_id_producto_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY pedido_producto
@@ -904,7 +904,7 @@ ALTER TABLE ONLY pedido_producto
 
 
 --
--- Name: pedido_rut_contacto_cliente_fkey; Type: FK CONSTRAINT; Schema: public; Owner: isatixor_gestionprana
+-- Name: pedido_rut_contacto_cliente_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY pedido
@@ -912,7 +912,7 @@ ALTER TABLE ONLY pedido
 
 
 --
--- Name: rut_cliente_clave; Type: FK CONSTRAINT; Schema: public; Owner: isatixor_gestionprana
+-- Name: rut_cliente_clave; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY contacto
@@ -920,7 +920,7 @@ ALTER TABLE ONLY contacto
 
 
 --
--- Name: telefono_rut_cliente_fkey; Type: FK CONSTRAINT; Schema: public; Owner: isatixor_gestionprana
+-- Name: telefono_rut_cliente_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY telefono
@@ -938,139 +938,139 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
 --
--- Name: cliente; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: cliente; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON TABLE cliente FROM PUBLIC;
-REVOKE ALL ON TABLE cliente FROM isatixor_gestionprana;
-GRANT ALL ON TABLE cliente TO isatixor_gestionprana;
+REVOKE ALL ON TABLE cliente FROM postgres;
+GRANT ALL ON TABLE cliente TO postgres;
 
 
 --
--- Name: contacto; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: contacto; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON TABLE contacto FROM PUBLIC;
-REVOKE ALL ON TABLE contacto FROM isatixor_gestionprana;
-GRANT ALL ON TABLE contacto TO isatixor_gestionprana;
+REVOKE ALL ON TABLE contacto FROM postgres;
+GRANT ALL ON TABLE contacto TO postgres;
 
 
 --
--- Name: cotizacion; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: cotizacion; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON TABLE cotizacion FROM PUBLIC;
-REVOKE ALL ON TABLE cotizacion FROM isatixor_gestionprana;
-GRANT ALL ON TABLE cotizacion TO isatixor_gestionprana;
+REVOKE ALL ON TABLE cotizacion FROM postgres;
+GRANT ALL ON TABLE cotizacion TO postgres;
 
 
 --
--- Name: cotizacion_cliente; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: cotizacion_cliente; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON SEQUENCE cotizacion_cliente FROM PUBLIC;
 
 
 --
--- Name: cotizacion_producto; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: cotizacion_producto; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON TABLE cotizacion_producto FROM PUBLIC;
-REVOKE ALL ON TABLE cotizacion_producto FROM isatixor_gestionprana;
-GRANT ALL ON TABLE cotizacion_producto TO isatixor_gestionprana;
+REVOKE ALL ON TABLE cotizacion_producto FROM postgres;
+GRANT ALL ON TABLE cotizacion_producto TO postgres;
 
 
 --
--- Name: despacho; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: despacho; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON TABLE despacho FROM PUBLIC;
 
 
 --
--- Name: direccion; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: direccion; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON TABLE direccion FROM PUBLIC;
-REVOKE ALL ON TABLE direccion FROM isatixor_gestionprana;
-GRANT ALL ON TABLE direccion TO isatixor_gestionprana;
+REVOKE ALL ON TABLE direccion FROM postgres;
+GRANT ALL ON TABLE direccion TO postgres;
 
 
 --
--- Name: pedido; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: pedido; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON TABLE pedido FROM PUBLIC;
 
 
 --
--- Name: pedido.id; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: pedido.id; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL(id) ON TABLE pedido FROM PUBLIC;
-REVOKE ALL(id) ON TABLE pedido FROM isatixor_gestionprana;
-GRANT ALL(id) ON TABLE pedido TO isatixor_gestionprana WITH GRANT OPTION;
+REVOKE ALL(id) ON TABLE pedido FROM postgres;
+GRANT ALL(id) ON TABLE pedido TO postgres WITH GRANT OPTION;
 
 
 --
--- Name: pedido_producto; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: pedido_producto; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON TABLE pedido_producto FROM PUBLIC;
-REVOKE ALL ON TABLE pedido_producto FROM isatixor_gestionprana;
-GRANT ALL ON TABLE pedido_producto TO isatixor_gestionprana;
+REVOKE ALL ON TABLE pedido_producto FROM postgres;
+GRANT ALL ON TABLE pedido_producto TO postgres;
 
 
 --
--- Name: pedido_seq; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: pedido_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON SEQUENCE pedido_seq FROM PUBLIC;
 
 
 --
--- Name: perfil; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: perfil; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON TABLE perfil FROM PUBLIC;
-REVOKE ALL ON TABLE perfil FROM isatixor_gestionprana;
-GRANT ALL ON TABLE perfil TO isatixor_gestionprana;
+REVOKE ALL ON TABLE perfil FROM postgres;
+GRANT ALL ON TABLE perfil TO postgres;
 
 
 --
--- Name: perfil_id_seq; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: perfil_id_seq; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON SEQUENCE perfil_id_seq FROM PUBLIC;
 
 
 --
--- Name: producto; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: producto; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON TABLE producto FROM PUBLIC;
-REVOKE ALL ON TABLE producto FROM isatixor_gestionprana;
-GRANT ALL ON TABLE producto TO isatixor_gestionprana;
+REVOKE ALL ON TABLE producto FROM postgres;
+GRANT ALL ON TABLE producto TO postgres;
 
 
 --
--- Name: solicitud_cotizacion; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: solicitud_cotizacion; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON TABLE solicitud_cotizacion FROM PUBLIC;
 
 
 --
--- Name: telefono; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: telefono; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON TABLE telefono FROM PUBLIC;
-REVOKE ALL ON TABLE telefono FROM isatixor_gestionprana;
-GRANT ALL ON TABLE telefono TO isatixor_gestionprana;
+REVOKE ALL ON TABLE telefono FROM postgres;
+GRANT ALL ON TABLE telefono TO postgres;
 
 
 --
--- Name: usuario; Type: ACL; Schema: public; Owner: isatixor_gestionprana
+-- Name: usuario; Type: ACL; Schema: public; Owner: postgres
 --
 
 REVOKE ALL ON TABLE usuario FROM PUBLIC;
