@@ -9,6 +9,8 @@
             <ul class="nav-sub">
                 <li><a href="<?= base_url();?>index.php/main?select=verCotizaciones">Solicitudes de cotizaciones</a>
                 </li>
+                <li><a href="<?= base_url();?>index.php/main?op=cotizador">Cotizador</a>
+                </li>
                 <li><a href="<?= base_url();?>index.php/main?op=agregarusuario">Agregar Usuarios</a>
                 </li>
             </ul>
