@@ -118,6 +118,7 @@
                                     $totalb10 =0;
                                     $totaldispen =0;
                                     $totaldispenplastico =0;
+                                    $totalllave =0;
                                     
                                     if($b20cantidad > 0){
                                         $totalb20 = $b20precio*$b20cantidad;
