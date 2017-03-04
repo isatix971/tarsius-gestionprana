@@ -8,7 +8,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">Ingreso de Clientes</h3>
 
-                    </div>
+                    </div>                    
                     <div class="panel-body">
                         <form class="form-horizontal form-border" method="post" action="<?php echo base_url();?>index.php/main/?fun=almacenarCliente">
                             <div class="form-group">
