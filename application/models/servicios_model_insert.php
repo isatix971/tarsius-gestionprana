@@ -166,16 +166,43 @@ class Servicios_model_insert extends CI_Model {
                     return false;
                 }
 
-
                 return 'Usuario almacenado con exito!';
             } catch (Exception $e) {
                 return false;
             }
         }
 
-
         if ($nombre_fun == 'almacenarDespacho') {
-            
+
+            $idDespacho = $this->input->post("idDespacho");
+            $b20devueltos = $this->input->post("b20devueltos");
+            $comentarios = $this->input->post("comentarios");
+            $estadopago = $this->input->post("estadopago");
+
+//            id de producto es 1 que corresponde a los botellones de 20L
+
+            $sql = "INSERT INTO pago_devolucion_envase (id,id_pedido,id_producto,cantidad_devuelta,fecha_devolucion,comentarios,estado_pago)
+	VALUES (nextval('devolucion_envase_seq'::regclass),$idDespacho,1,$b20devueltos,now(),'$comentarios'"
+                    . ",'$estadopago')";
+            $sql_update = "UPDATE pedido SET fecha_entrega=now(), estado='entregado' WHERE id='$idDespacho'";
+
+            try {
+                $result = $this->db->query($sql);
+                $result_update = $this->db->query($sql_update);
+
+                if (!$result) {
+                    throw new Exception('error in query');
+                    return false;
+                }
+                if (!$result_update) {
+                    throw new Exception('error in query');
+                    return false;
+                }
+
+                return 'Pedido finalizado correctamente';
+            } catch (Exception $e) {
+                return false;
+            }
         }
     }
 
