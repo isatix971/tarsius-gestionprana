@@ -21,8 +21,8 @@
 
 //                    console.log(respuesta);
 
-                    select = document.getElementById('despacho');
-                    $('#despacho').empty();
+                    select = document.getElementById('idDespacho');
+                    $('#idDespacho').empty();
 
                     for (var i = 0; i < objetos.length; i++) {
 
@@ -46,12 +46,12 @@
 
                     </div>
                     <div class="panel-body">
-                        <form class="form-horizontal form-border" method="post" action="<?php echo base_url(); ?>index.php/main/?fun=almacenarContactoCliente">
+                        <form class="form-horizontal form-border" method="post" action="<?php echo base_url(); ?>index.php/main/?fun=almacenarDespacho">
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Pedido</label>
                                 <div class="col-sm-6">
 <!--                                    <input type="text" placeholder="nombre de cliente" required="" id="nomEmpresa" name="nomEmpresa" class="form-control" value="<?php echo $_SESSION["id"]; ?>">                                        -->
-                                    <select  required="" id="despacho" name="despacho" class="form-control input-lg">
+                                    <select  required="" id="idDespacho" name="idDespacho" class="form-control input-lg">
                                     </select>                                
                                 </div>
                             </div>
@@ -62,19 +62,18 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Envases vacios devueltos</label>
                                 <div class="col-sm-6">
-                                    <input type="number" placeholder="Envases vacios devueltos" required="" id="nombreContacto" name="nombreContacto" class="form-control">
+                                    <input type="number" placeholder="Envases vacios devueltos" required="" id="b20devueltos" name="b20devueltos" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Ingresar Guia</label>
+                                <label class="col-sm-3 control-label">Forma de pago</label>
                                 <div class="col-sm-6">
-                                    <input type="number" placeholder="Ingresar Guia" required="" id="correoContacto" name="correoContacto" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Ingresar Factura</label>
-                                <div class="col-sm-6">
-                                    <input  type="number" placeholder="Ingresar Factura" required="" id="rutContacto" name="rutContacto" class="form-control">
+                                    <label class="radio-inline">
+                                        <input class="icheck" type="radio" checked="" value="ok" name="estadopago">Pagado</label>
+                                    <label class="radio-inline">
+                                        <input class="icheck" type="radio" value="nok" name="estadopago">Pago pendiente</label>
+<!--                                    <label class="radio-inline">
+                                        <input class="icheck" type="radio" name="rad1">Option 3</label>-->
                                 </div>
                             </div>
 

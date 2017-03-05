@@ -119,8 +119,17 @@
                                 <label class="col-sm-2 control-label">Comentarios</label>
                                 <div class="col-sm-6">
                                     <label class="control-label">Comentarios</label>                                 
-                                    <textarea  id="comentarios" name="comentarios" placeholder="Ingrese comentarios" class="form-control"><?php echo set_value('comentarios', @$postData[5]) ?></textarea>
+                                    <textarea rows="8" id="comentarios" name="comentarios" placeholder="Ingrese comentarios" class="form-control"><?php echo set_value('comentarios',"Comentarios: \n- - - - - - - - -\n". @$postData[5]) ?></textarea>
                                     </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Solo enviar mensaje sin cotizacion</label>
+                                <div class="col-sm-6">
+                                    <label class="radio-inline">
+                                        <input class="icheck" type="radio" checked="" value="ok" name="adjunto">Adjuntar</label>
+                                    <label class="radio-inline">
+                                        <input class="icheck" type="radio" value="nok" name="adjunto">No Adjuntar</label>
+                                </div>
                             </div>
                             
                             <?php if(isset($postData)){ //id de solicitud de cotizacion  ?>
