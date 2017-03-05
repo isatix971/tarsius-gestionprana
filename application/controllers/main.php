@@ -20,6 +20,8 @@ class Main extends CI_Controller {
 
 
         $this->load->helper('url');
+        
+        $this->load->library('form_validation');//validador de formulario, para usar set_value
     }
 
     public function index() {
@@ -42,9 +44,21 @@ class Main extends CI_Controller {
                 //solo para cargar las vistas y los else son para cargar las funciones
                 $_SESSION["ultimoAcceso"] = $ahora;
                 if ($this->input->get('op') != '') {
-
+                     
+                    //inicio elemento receptor de variables POST desde verCotizaciones
+                    if($this->input->get('op') == 'cotizador'){
+                        if($this->input->post('sol_id')){//si viene sol_id
+                            $data['postData'][0] = $this->input->post('sol_id');
+                            $data['postData'][1] = $this->input->post('sol_nombre');
+                            $data['postData'][2] = $this->input->post('sol_correo');
+                            $data['postData'][3] = $this->input->post('sol_telefono');
+                            $data['postData'][4] = $this->input->post('sol_fecha');
+                            $data['postData'][5] = $this->input->post('sol_mensaje');
+                        }
+                    }//fin elemento receptor de variables POST desde verCotizaciones
+                    
                     $data['op'] = $this->input->get('op');
-//                $this->load->view($data['op']);
+//                  $this->load->view($data['op']);
                     $this->load->view('main', $data);
                 } else if ($this->input->get('fun') != '') {
 //                    echo "------------------------------------------------------";

@@ -37,13 +37,22 @@
 //                            echo "</form>";
                             echo "<td>" . substr($row['fecha'], 0, 10) . "</td>";
                             echo "<td>";
-
-
                             echo $row['mensaje'];
                             echo "</td>";
                             echo "<td class='col-md-3'>";
                             echo "<div class='btn-group'>";
 
+                            /*inicio segmento formulario escondido para que los datos viajen por POST*/
+                            echo "<form id=\"form_".$row['id']."\" style=\"display:none\" method=\"POST\" action=\"".base_url()."index.php/main?op=cotizador\">";
+                            echo "<input type=\"hidden\" name=\"sol_id\" value=\"".$row['id']."\">";
+                            echo "<input type=\"hidden\" name=\"sol_nombre\" value=\"".$row['nombre']."\">";                                
+                            echo "<input type=\"hidden\" name=\"sol_correo\" value=\"".$row['correo']."\">";
+                            echo "<input type=\"hidden\" name=\"sol_telefono\" value=\"".$row['telefono']."\">";
+                            echo "<input type=\"hidden\" name=\"sol_fecha\" value=\"".$row['fecha']."\">";
+                            echo "<input type=\"hidden\" name=\"sol_mensaje\" value=\"".$row['mensaje']."\">";                            
+                            echo "</form>";
+                            /*fin segmento*/
+                            
                             echo "<button onClick='crearCotizacion(";
                             echo $row['id'];
                             echo ")' type='button' class='btn btn-primary'>Enviar</button>";
@@ -96,24 +105,38 @@
                 });
     }
     function crearCotizacion(id) {
-
+    
+        /*
         var data=[];
                 var i = 0;
-        $("#id_" + id + " td").each(function (index) {
-
+        $("#id_" + id + " td").each(function() 
+        {
             data[i] = $(this).text();
             i++;
+        });        
+        $("#id_22").children('td').each (function() {
+        // do your cool stuff
+	console.log($(this).text());
         });
-//        alert(data);
+        alert(data);
         $.post( "http://www.isatix.org/tarsius/index.php/main?select=cotizador",
-    {
-        name: "Donald Duck",
-        city: "Duckburg"
-    },
-    function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
-    });
-
+        {
+            name: "Donald Duck",
+            city: "Duckburg"
+        },
+        function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+        */
+           
+        /* Una forma de hacerlo por post es haciendo que cada fila tenga un
+         * formulario escondido, y que al apretar enviar en la práctica lo que haga
+         * es gatillar su action con metodo POST, enviando la correspondiente informacion
+         */
+        if(true)//espacio para su validación loca
+        {
+             $("#form_" +id).submit();
+        }
     }
 
 </script>
