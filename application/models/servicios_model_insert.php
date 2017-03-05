@@ -204,7 +204,14 @@ class Servicios_model_insert extends CI_Model {
                 return false;
             }
         }
+        if ($nombre_fun == 'envioCotizacion') {
+
+//            este metodo se debe completar para almacenar una cotizacion realizada.
+
+           return "Solicitud o cotizacion realizada";
+        }
     }
+    
 
 }
 

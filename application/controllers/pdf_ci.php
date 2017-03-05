@@ -40,7 +40,6 @@ class Pdf_ci extends CI_Controller {
 
 
 
-
         $data = array(
             'nomEmpresa' => $nomEmpresa,
             'nomContacto' => $nomContacto,
@@ -81,8 +80,9 @@ class Pdf_ci extends CI_Controller {
 
             //si el pdf se guarda correctamente lo mostramos en pantalla
             if ($this->html2pdf->create('save')) {
-                $this->show($nomContacto . "_" . $nomEmpresa);
-                $this->downloadPdf($nomContacto . "_" . $nomEmpresa);
+//
+//                $this->show($nomContacto . "_" . $nomEmpresa);
+//                $this->downloadPdf($nomContacto . "_" . $nomEmpresa);
                 $this->mail_pdf($data, $correo, $nomContacto, $nomContacto . "_" . $nomEmpresa, $comentarios);
             }
         } else {
@@ -153,6 +153,10 @@ class Pdf_ci extends CI_Controller {
         $this->email->send();
 
         echo "El email ha sido enviado correctamente";
+//        <meta http-equiv="Refresh" content="1;url=../">
+        header("Location: http://www.isatix.org/tarsius/index.php/main?fun=envioCotizacion");
+
+//        echo"<meta http-equiv='Refresh' content='1;url=http://www.isatix.org/tarsius/index.php/main?fun=envioCotizacion'>";
     }
 
     //función para crear y enviar el pdf por email
