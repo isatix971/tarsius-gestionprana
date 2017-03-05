@@ -1,4 +1,16 @@
-
+<?php
+    if (isset($postData)){
+        //echo "<h1>VIENE LA POST DATAAAAAAAA</h1>".   $postData[2]; //debug
+        /*
+         * 0 - > id
+         * 1 - > nombre
+         * 2 - > correo
+         * 3 - > telefono
+         * 4 - > fecha
+         * 5 - > mensaje
+         */
+    }
+?>
 <section class="main-content-wrapper">
     <section id="main-content">
         <div class="row">
@@ -22,19 +34,19 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Nombre de contacto</label>
                                 <div class="col-sm-6">
-                                    <input type="text" placeholder="Ingrese Nombre" required="" id="nomContacto" name="nomContacto" class="form-control">
+                                    <input type="text" placeholder="Ingrese Nombre" required="" id="nomContacto" name="nomContacto" class="form-control" value="<?php echo set_value('nomContacto', @$postData[1]) ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Correo</label>
                                 <div class="col-sm-6">
-                                    <input type="email" placeholder="Ingrese e-mail" id="correo" name="correo" required="" class="form-control ">
+                                    <input type="email" placeholder="Ingrese e-mail" id="correo" name="correo" required="" class="form-control" value="<?php echo set_value('correo', @$postData[2]) ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Telefono</label>
                                 <div class="col-sm-6">
-                                    <input type="text" placeholder="XX-XXXX XXX" required="" id="telefono" name="telefono" class="form-control">                                        </div>
+                                    <input type="text" placeholder="XX-XXXX XXX" required="" id="telefono" name="telefono" class="form-control" value="<?php echo set_value('telefono', @$postData[3]) ?>">                                        </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Botellones 20L</label>
@@ -106,11 +118,16 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Comentarios</label>
                                 <div class="col-sm-6">
-                                    <label class="control-label">Comentarios</label>
-                                    <textarea  id="comentarios" name="comentarios" placeholder="Ingrese comentarios" class="form-control" ></textarea>                                      
-                                </div>
-
+                                    <label class="control-label">Comentarios</label>                                 
+                                    <textarea  id="comentarios" name="comentarios" placeholder="Ingrese comentarios" class="form-control"><?php echo set_value('comentarios', @$postData[5]) ?></textarea>
+                                    </div>
                             </div>
+                            
+                            <?php if(isset($postData)){ //id de solicitud de cotizacion  ?>
+                                <input type="hidden" name="idSolicitudCotizacion" value="<?php echo set_value('idSolicitudCotizacion', @$postData[0]) ?>" /> 
+                            <?php } //find de id de solicitud de cotizacion  ?> 
+                            
+                                
                             <div class="form-group">
                                 <div class="col-sm-offset-8 col-sm-10">
                                     <input class="btn btn-primary" type="submit" value="Enviar">
