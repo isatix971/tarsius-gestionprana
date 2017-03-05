@@ -152,11 +152,11 @@ class Pdf_ci extends CI_Controller {
         $this->email->subject('Agua Purificada Prana');
         $this->email->send();
 
-        echo "El email ha sido enviado correctamente";
+        echo "El email ha sido enviado correctamente... " . "<a href='http://www.isatix.org/tarsius/index.php/main?fun=envioCotizacion'>clic para volver</a>";
 //        <meta http-equiv="Refresh" content="1;url=../">
-        header("Location: http://www.isatix.org/tarsius/index.php/main?fun=envioCotizacion");
+        header('Location: http://www.isatix.org/tarsius/index.php/main?fun=envioCotizacion');
 
-//        echo"<meta http-equiv='Refresh' content='1;url=http://www.isatix.org/tarsius/index.php/main?fun=envioCotizacion'>";
+        echo"<meta http-equiv='Refresh' content='1;url=http://www.isatix.org/tarsius/index.php/main?fun=envioCotizacion'>";
     }
 
     //función para crear y enviar el pdf por email
@@ -208,7 +208,11 @@ class Pdf_ci extends CI_Controller {
             $this->email->subject('Agua Purificada Prana');
             $this->email->send();
 
-            echo "El email ha sido enviado correctamente";
+            echo "El email ha sido enviado correctamente... " . "<a href='http://www.isatix.org/tarsius/index.php/main?fun=envioCotizacion'>clic para volver</a>";
+//        <meta http-equiv="Refresh" content="1;url=../">
+//            header('Location: http://www.isatix.org/tarsius/index.php/main?fun=envioCotizacion');
+
+            echo"<meta http-equiv='Refresh' content='1;url=http://www.isatix.org/tarsius/index.php/main?fun=envioCotizacion'>";
         }
     }
 
