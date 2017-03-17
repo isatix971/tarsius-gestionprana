@@ -10,7 +10,7 @@
 
                     </div>                    
                     <div class="panel-body">
-                        <form class="form-horizontal form-border" method="post" action="<?php echo base_url();?>index.php/main/?fun=almacenarCliente">
+                        <form class="form-horizontal form-border" name="ingrescliente" method="post" action="<?php echo base_url();?>index.php/main/?fun=almacenarCliente">
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Razón social</label>
                                 <div class="col-sm-6">
@@ -20,7 +20,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Rut</label>
                                 <div class="col-sm-6">
-                                    <input onblur="validarRut('rutEmpresa')" type="text" placeholder="Ingrese Rut" required="" id="rutEmpresa" name="rutEmpresa" class="form-control">
+                                    <input onblur="validarClienteRut('rutEmpresa')" type="text" placeholder="Ingrese Rut" required="" id="rutEmpresa" name="rutEmpresa" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -73,7 +73,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Rut</label>
                                 <div class="col-sm-6">
-                                    <input onblur="validarRut('rutContacto')" type="text" placeholder="Ingrese Rut" required="" id="rutContacto" name="rutContacto" class="form-control">
+                                    <input onblur="validarContactoRut('rutContacto')" type="text" placeholder="Ingrese Rut" required="" id="rutContacto" name="rutContacto" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -85,7 +85,7 @@
 
                             <div class="form-group">
                                 <div class="col-sm-offset-8 col-sm-10">
-                                    <input class="btn btn-primary" type="submit" value="Enviar" >
+                                    <input class="btn btn-primary" id="botoningresacliente" type="submit" value="Enviar" >
 <!--                                    <button type="" class="btn btn-primary" onclick="validar()">Enviar</button>-->
                                 </div>
                             </div>

@@ -77,6 +77,7 @@
 
             $var = Rut($('#' + element).val());
             document.getElementById(element).value = $var;
+//            alert($var);
         }
 
 //        seccion para correr script en el inicio de la carga del programa
@@ -84,6 +85,58 @@
 
         });
 
+        function validarClienteRut(element) {
+            $var = Rut($('#' + element).val());
+            if ($var != false) {
+                document.getElementById(element).value = $var;
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo site_url('utils/get_rut_cliente_almacenado'); ?>",
+                    data: {rut: $var}
+                })
+                        .done(function (respuesta) {
+                            if (respuesta == "true") {
+                                $('#botoningresacliente').prop('disabled', false);
+                            } else {
+                                alertify.error("EL rut ya se encuentra registrado");
+                                $('#botoningresacliente').prop('disabled', true);
+
+                            }
+                        });
+            } else {
+                document.getElementById(element).value = '';
+
+                $('#botoningresacliente').prop('disabled', true);
+            }
+        }
+        
+        
+        function validarContactoRut(element) {
+            $var = Rut($('#' + element).val());
+            if ($var != false) {
+                document.getElementById(element).value = $var;
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo site_url('utils/get_rut_contacto_almacenado'); ?>",
+                    data: {rut: $var}
+                })
+                        .done(function (respuesta) {
+                            if (respuesta == "true") {
+                                $('#botoningresacliente').prop('disabled', false);
+                            } else {
+                                alertify.error("EL rut ya se encuentra registrado");
+                                $('#botoningresacliente').prop('disabled', true);
+
+                            }
+                        });
+            } else {
+                document.getElementById(element).value = '';
+
+                $('#botoningresacliente').prop('disabled', true);
+            }
+        }
 
     </script>
 

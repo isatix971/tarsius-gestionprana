@@ -2,6 +2,7 @@
 
 //birds.php
 class Utils extends CI_Controller {
+
     function __construct() {
         parent::__construct();
 
@@ -34,8 +35,6 @@ class Utils extends CI_Controller {
         echo $this->utils_model->get_despachador();
     }
 
-
-
     function get_pedidosDespachador() {
 
         if (isset($_POST['id'])) {
@@ -44,6 +43,28 @@ class Utils extends CI_Controller {
             echo $this->utils_model->get_pedidosDespachador($q);
         }
     }
+
+    function get_rut_cliente_almacenado() {
+        if (isset($_POST['rut'])) {
+//            echo $_GET['term'];
+            $q = $_POST['rut'];
+
+            $rut1 = str_replace(".", "", $q );
+            $rutdv1 = explode('-', $rut1);
+        }
+        echo $this->utils_model->get_cliente_existe($rutdv1[0]);
+    }
+    function get_rut_contacto_almacenado() {
+        if (isset($_POST['rut'])) {
+//            echo $_GET['term'];
+            $q = $_POST['rut'];
+
+            $rut1 = str_replace(".", "", $q );
+            $rutdv1 = explode('-', $rut1);
+        }
+        echo $this->utils_model->get_contacto_existe($rutdv1[0]);
+    }
+    
 
     function show() {
         $this->load->view('prueba'); //envío al usuario a la pag. de autenticación 

@@ -93,4 +93,33 @@ class Utils_model extends CI_Model {
         }
     }
 
+    function get_cliente_existe($rutdv1) {
+ 
+        $this->db->select('*');
+        $this->db->from('cliente ');
+        $this->db->where('rut', $rutdv1);
+
+        $query = $this->db->get();
+//echo $query;
+        if ($query->num_rows() > 0) {
+            return "false"; //se agrega 1 para ver valor real
+        } else {
+            return "true";
+        }
+    }
+    function get_contacto_existe($rutdv1) {
+ 
+        $this->db->select('*');
+        $this->db->from('contacto ');
+        $this->db->where('rut_contacto', $rutdv1);
+
+        $query = $this->db->get();
+//echo $query;
+        if ($query->num_rows() > 0) {
+            return "false"; //se agrega 1 para ver valor real
+        } else {
+            return "true";
+        }
+    }
+
 }

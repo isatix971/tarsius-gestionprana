@@ -27,7 +27,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Clave</label>
                                 <div class="col-sm-6">
-                                    <input  type="password" placeholder="Ingrese Rut" required="" id="clave" name="clave" class="form-control">
+                                    <input  type="password" placeholder="Ingrese Clave" required="" id="clave" name="clave" class="form-control">
                                 </div>
                             </div>
 

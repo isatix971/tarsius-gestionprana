@@ -28,6 +28,12 @@ class Servicios_model_select extends CI_Model {
 
             return $query;
         }
-    }
+        if ($nombre_fun == 'verEnvasesDevueltos') {
+//            realiza diferencia de envases 
+//        select (pp.cantidad - (select sum(pde.cantidad_devuelta) from pedido_producto pp, pago_devolucion_envase pde, pedido pdd, contacto cont where pp.id_pedido = pde.id_pedido and pp.id_pedido=pdd.id and pdd.rut_contacto_cliente = cont.rut_contacto and cont.rut_cliente = 6457478)) as pendiente_devolucion from pedido_producto pp, pago_devolucion_envase pde, pedido pdd, contacto cont where pp.id_pedido = pde.id_pedido and pp.id_pedido=pdd.id and pdd.rut_contacto_cliente = cont.rut_contacto and cont.rut_cliente = 6457478 group by pp.id_pedido,pp.id_producto, cantidad;
+        }
+        
+        
+        }
 
 }

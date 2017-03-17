@@ -12,13 +12,13 @@
         });
 
     });
-    
 
-    
-    
-    
+
+
+
+
     function buscarContacto() {
-    
+
         $.ajax({
             type: "POST",
             url: "<?php echo site_url('utils/get_contactos'); ?>",

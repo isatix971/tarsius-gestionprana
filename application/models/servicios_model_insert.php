@@ -179,6 +179,10 @@ class Servicios_model_insert extends CI_Model {
             $comentarios = $this->input->post("comentarios");
             $estadopago = $this->input->post("estadopago");
 
+            
+            
+            
+            
 //            id de producto es 1 que corresponde a los botellones de 20L
 
             $sql = "INSERT INTO pago_devolucion_envase (id,id_pedido,id_producto,cantidad_devuelta,fecha_devolucion,comentarios,estado_pago)
@@ -204,6 +208,10 @@ class Servicios_model_insert extends CI_Model {
                 return false;
             }
         }
+        
+        
+        
+        //envia mensaje 
         if ($nombre_fun == 'envioCotizacion') {
 
 //            este metodo se debe completar para almacenar una cotizacion realizada.

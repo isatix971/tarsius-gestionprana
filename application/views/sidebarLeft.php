@@ -13,6 +13,10 @@
                 </li>
                 <li><a href="<?= base_url();?>index.php/main?op=agregarusuario">Agregar Usuarios</a>
                 </li>
+                
+                <li><a href="http://www.sii.cl/factura_electronica/factura_sii/factura_sii.htm">Facturas Electronicas</a>
+                </li>
+                
             </ul>
              
             
@@ -39,8 +43,18 @@
                 </li>
                 <li><a href="<?= base_url();?>index.php/main?select=verPedidos">Estado Pedidos</a>
                 </li>
-                <li><a href="<?= base_url();?>index.php/main?op=agregarcliente"> Asignar Guia o Factura</a>
+            </ul>
+        </li>
+        <li class="nav-dropdown">
+            <a href="#" title="Maps">
+                <i class="fa fa-truck"></i> Facturas/Guias
+            </a>
+            <ul class="nav-sub">
+                <li><a href="<?= base_url();?>index.php/main?op=verFacturas">Ver Facturas</a>
                 </li>
+                <li><a href="<?= base_url();?>index.php/main?select=verGuias">Ver Guias</a>
+                </li>
+                
 
             </ul>
         </li>
