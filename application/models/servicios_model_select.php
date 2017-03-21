@@ -47,6 +47,7 @@ class Servicios_model_select extends CI_Model {
         cli.rut = con.rut_cliente and pde.id_pedido = pdd.id");
             }
 
+            
 
             return $query;
         }
