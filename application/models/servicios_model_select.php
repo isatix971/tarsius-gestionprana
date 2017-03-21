@@ -28,12 +28,43 @@ class Servicios_model_select extends CI_Model {
 
             return $query;
         }
+        if ($nombre_fun == 'verFacturas') {
+            $nomEmpresa = $this->input->post("nomEmpresa");
+            if ($nomEmpresa != '') {
+                $query = $this->db->query("select cli.nombre_rzn_social,
+                cli.rut, cli.dv,con.nombre,pdd.id, pdd.fecha_pedido,
+                pdd.fecha_entrega,pdd.factura, pdd.guia,pde.estado_pago
+        from pedido pdd, contacto con, cliente cli, pago_devolucion_envase pde
+        where pdd.rut_contacto_cliente = con.rut_contacto and
+        cli.rut = con.rut_cliente and pde.id_pedido = pdd.id
+        and cli.rut =" . $nomEmpresa);
+            } else {
+                $query = $this->db->query("select cli.nombre_rzn_social,
+                cli.rut, cli.dv,con.nombre,pdd.id, pdd.fecha_pedido,
+                pdd.fecha_entrega,pdd.factura, pdd.guia,pde.estado_pago
+        from pedido pdd, contacto con, cliente cli, pago_devolucion_envase pde
+        where pdd.rut_contacto_cliente = con.rut_contacto and
+        cli.rut = con.rut_cliente and pde.id_pedido = pdd.id");
+            }
+
+
+            return $query;
+        }
+
         if ($nombre_fun == 'verEnvasesDevueltos') {
 //            realiza diferencia de envases 
-//        select (pp.cantidad - (select sum(pde.cantidad_devuelta) from pedido_producto pp, pago_devolucion_envase pde, pedido pdd, contacto cont where pp.id_pedido = pde.id_pedido and pp.id_pedido=pdd.id and pdd.rut_contacto_cliente = cont.rut_contacto and cont.rut_cliente = 6457478)) as pendiente_devolucion from pedido_producto pp, pago_devolucion_envase pde, pedido pdd, contacto cont where pp.id_pedido = pde.id_pedido and pp.id_pedido=pdd.id and pdd.rut_contacto_cliente = cont.rut_contacto and cont.rut_cliente = 6457478 group by pp.id_pedido,pp.id_producto, cantidad;
+//select *,(env_entregados-env_devueltos) as diferencia_envases  from (
+//select pp.id_producto,sum(pp.cantidad) as env_entregados  from pedido pdd, pedido_producto pp,contacto con, cliente cli
+//where pdd.id = pp.id_pedido and pdd.estado = 'entregado' and
+//pdd.rut_contacto_cliente = con.rut_contacto and con.rut_cliente = cli.rut
+//and cli.rut = 98437098 group by pp.id_producto) as entregas,
+//
+//(select id_producto, sum(cantidad_devuelta) as env_devueltos from pago_devolucion_envase pde, pedido pdd, contacto con, cliente cli
+//where pde.id_pedido = pdd.id and pdd.rut_contacto_cliente = con.rut_contacto
+//and con.rut_cliente = cli.rut and cli.rut = 98437098 group by id_producto) as devolucion
+//
+//where entregas.id_producto = devolucion.id_producto;
         }
-        
-        
-        }
+    }
 
 }

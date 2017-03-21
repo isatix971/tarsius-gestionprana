@@ -87,6 +87,8 @@
     $(document).ready(function () {
         $('#pedidos').dataTable();
     });
+    
+    
     function asignarPedido(id) {
         html = "";
         html += "<div class='modal-dialog'>";
@@ -114,9 +116,6 @@
 
     function guardarDespacho(id) {
         var idd = $('#despachador option:selected').val();
-
-
-
         $.ajax({
             type: "POST",
             url: "<?php echo site_url('main?update=updateDespacho'); ?>",
@@ -126,9 +125,7 @@
                     alert(respuesta);
                     if (respuesta == 'ok') {
                         location.reload();
-
                     }
-
                 });
     }
 

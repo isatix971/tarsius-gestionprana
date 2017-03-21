@@ -36,18 +36,23 @@
                                 <div class="col-sm-6">
                                     <div class="radio">
 
-                                        <input class="icheck" value="1" type="checkbox"  id="checkadmin" name="checkadmin">
+                                        <input class="icheck" value="administrador" type="checkbox"  id="checkadmin" name="checkadmin">
                                         <label>Administrador</label>
                                     </div>
                                     <div class="radio">
 
-                                        <input class="icheck" value="2" type="checkbox"  id="checkdespa" name="checkdespa">
+                                        <input class="icheck" value="despachador" type="checkbox"  id="checkdespa" name="checkdespa">
                                         <label>Despachador</label>
                                     </div>
                                     <div class="radio">
 
-                                        <input class="icheck" value="3" type="checkbox" id="checksecre" name="checksecre">
+                                        <input class="icheck" value="oficina" type="checkbox" id="checksecre" name="checksecre">
                                         <label>Oficina</label>
+                                    </div>
+                                    <div class="radio">
+
+                                        <input class="icheck" value="llenador" type="checkbox" id="checksecre" name="checksecre">
+                                        <label>Lenador</label>
                                     </div>
                                 </div>
                             </div>

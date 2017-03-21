@@ -72,7 +72,24 @@
         $.datepicker.setDefaults($.datepicker.regional['es']);
 
 
+//fecha de entrega
+        $(function () {
+            $("#fechaEstimada").datepicker({
+                dateFormat: 'mm-dd-yy',
+                language: 'es'
+            }).val();
+        });
 
+
+        //autocompletar de cliente o empresa
+
+        $(function () {
+            $("#nomEmpresa").autocomplete({
+                source: "<?php echo site_url('utils/get_clientes'); ?>" // path to the get_birds method
+            });
+
+        });
+//*******************************************
         function validarRut(element) {
 
             $var = Rut($('#' + element).val());
@@ -110,8 +127,8 @@
                 $('#botoningresacliente').prop('disabled', true);
             }
         }
-        
-        
+
+
         function validarContactoRut(element) {
             $var = Rut($('#' + element).val());
             if ($var != false) {

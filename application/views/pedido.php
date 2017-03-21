@@ -1,21 +1,4 @@
 <script>
-    $(function () {
-        $("#fechaEstimada").datepicker({
-            dateFormat: 'mm-dd-yy',
-            language: 'es'
-        }).val();
-    });
-
-    $(function () {
-        $("#nomEmpresa").autocomplete({
-            source: "<?php echo site_url('utils/get_clientes'); ?>" // path to the get_birds method
-        });
-
-    });
-
-
-
-
 
     function buscarContacto() {
 
@@ -27,13 +10,9 @@
                 .done(function (respuesta) {
                     var objetos = jQuery.parseJSON(respuesta);
 
-//                    console.log(respuesta);
-
                     select = document.getElementById('contactoCliente');
                     $('#contactoCliente').empty();
-//                    var opt = document.createElement('option');
-//                    opt.innerHTML = "Seleccione contacto";
-//                    select.appendChild(opt);
+
                     for (var i = 0; i < objetos.length; i++) {
 
                         var opt = document.createElement('option');
@@ -99,6 +78,18 @@
                                     </select>                                
                                 </div>
 
+                            </div>
+                            <div class="form-group has-warning">
+                                <label class="col-sm-3 control-label">Ingrese Factura</label>
+                                <div class="col-sm-6">
+                                    <input type="number" placeholder="Ingrese numero" id="b20" name="nfactura"  class="form-control ">
+                                </div>
+                            </div>
+                            <div class="form-group has-warning">
+                                <label class="col-sm-3 control-label">Ingrese Guia</label>
+                                <div class="col-sm-6">
+                                    <input type="number" placeholder="Ingrese numero" id="b20" name="nguia"  class="form-control ">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Fecha estimada de entrega</label>

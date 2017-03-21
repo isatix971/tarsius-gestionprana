@@ -97,12 +97,25 @@ class Servicios_model_insert extends CI_Model {
             $maquinaDetalle = $this->input->post("mqfcDetalle");
             $fechaEstimada = $this->input->post("fechaEstimada");
 
+            $nfactura = $this->input->post("nfactura");
+            $nguia = $this->input->post("nguia");
+
+            if ($nfactura == '') {
+                $nfactura = 0;
+            }
+            if ($nguia == '') {
+                $nguia = 0;
+            }
+
+            //valores por defecto que pueden ser modificados para botellon b20
             $idProducto = 1;
             $valorProducto = 2400;
+            //
+
             $estado = "pendiente";
 
             $sql = "INSERT INTO pedido (id,rut_contacto_cliente,fecha_pedido,fecha_estimada,fecha_entrega,factura,guia,estado)"
-                    . "VALUES (nextval('pedido_seq')," . $rutContacto . ",now(),'" . $fechaEstimada . "',null,null,null,'$estado')";
+                    . "VALUES (nextval('pedido_seq')," . $rutContacto . ",now(),'" . $fechaEstimada . "',null,$nfactura,$nguia,'$estado')";
 
             $result_seq = $this->utils_model->get_last_pedido();
             $sql2 = "INSERT INTO pedido_producto (id_pedido,precio_unidad,cantidad,id_producto,detalle)"
@@ -179,10 +192,10 @@ class Servicios_model_insert extends CI_Model {
             $comentarios = $this->input->post("comentarios");
             $estadopago = $this->input->post("estadopago");
 
-            
-            
-            
-            
+
+
+
+
 //            id de producto es 1 que corresponde a los botellones de 20L
 
             $sql = "INSERT INTO pago_devolucion_envase (id,id_pedido,id_producto,cantidad_devuelta,fecha_devolucion,comentarios,estado_pago)
@@ -208,18 +221,17 @@ class Servicios_model_insert extends CI_Model {
                 return false;
             }
         }
-        
-        
-        
+
+
+
         //envia mensaje 
         if ($nombre_fun == 'envioCotizacion') {
 
 //            este metodo se debe completar para almacenar una cotizacion realizada.
 
-           return "Solicitud o cotizacion realizada";
+            return "Solicitud o cotizacion realizada";
         }
     }
-    
 
 }
 
