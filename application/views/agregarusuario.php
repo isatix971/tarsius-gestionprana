@@ -31,29 +31,18 @@
                                 </div>
                             </div>
 
+                         
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Perfil</label>
                                 <div class="col-sm-6">
-                                    <div class="radio">
-
-                                        <input class="icheck" value="administrador" type="checkbox"  id="checkadmin" name="checkadmin">
-                                        <label>Administrador</label>
-                                    </div>
-                                    <div class="radio">
-
-                                        <input class="icheck" value="despachador" type="checkbox"  id="checkdespa" name="checkdespa">
-                                        <label>Despachador</label>
-                                    </div>
-                                    <div class="radio">
-
-                                        <input class="icheck" value="oficina" type="checkbox" id="checksecre" name="checksecre">
-                                        <label>Oficina</label>
-                                    </div>
-                                    <div class="radio">
-
-                                        <input class="icheck" value="llenador" type="checkbox" id="checksecre" name="checksecre">
-                                        <label>Lenador</label>
-                                    </div>
+                                    <label class="radio-inline">
+                                        <input class="icheck" type="radio" checked="" name="perfil" value="administrador">Administrador</label>
+                                    <label class="radio-inline">
+                                        <input class="icheck" type="radio" name="perfil" value="despachador">Despachador</label>
+                                    <label class="radio-inline">
+                                        <input class="icheck" type="radio" name="perfil" value="oficina">Oficina</label>
+                                    <label class="radio-inline">
+                                        <input class="icheck" type="radio" name="perfil" value="llenador">Llenador</label>
                                 </div>
                             </div>
 

@@ -6,7 +6,7 @@
             ?>
             <li class="nav-dropdown">
                 <a href="#" title="Maps">
-                    <i class="icon-pointer"></i> Herramientas
+                    <i class="fa fa-wrench"></i> Herramientas
                 </a>
                 <ul class="nav-sub">
                     <li><a href="<?= base_url(); ?>index.php/main?select=verCotizaciones">Solicitudes de cotizaciones</a>
@@ -15,9 +15,6 @@
                     </li>
                     <li><a href="<?= base_url(); ?>index.php/main?op=agregarusuario">Agregar Usuarios</a>
                     </li>
-
-
-
                 </ul>
             </li>
             <li class="nav-dropdown">
@@ -63,13 +60,24 @@
                 <ul class="nav-sub">
                     <li><a href="<?= base_url(); ?>index.php/main?op=entregaDespacho">Entregar Pedido</a>
                     </li>
-    <!--                <li><a href="<?= base_url(); ?>index.php/main?op=buscarcliente">Estado Pedidos</a>
-                    </li>-->
-    <!--                <li><a href="<?= base_url(); ?>index.php/main?op=agregarcliente"> Clientes</a>
-                    </li>-->
+
 
                 </ul>
             </li>
+            <li class="nav-dropdown">
+                <a href="#" title="Maps">
+                    <i class="fa  fa-tint"></i>Stock Bidones
+                </a>
+                <ul class="nav-sub">
+                    <li><a href="<?= base_url(); ?>index.php/main?op=stockManana">Registrar Mañana</a>
+                    </li>
+
+                    <li><a href="<?= base_url(); ?>index.php/main?select=stockTarde">Registrar Bidones</a>
+                    </li>
+
+                </ul>
+            </li>
+
             <?php
         }
 
@@ -77,15 +85,13 @@
             ?>
             <li class="nav-dropdown">
                 <a href="#" title="Maps">
-                    <i class="icon-pointer"></i> Herramientas
+                    <i class="fa fa-wrench"></i> Herramientas
                 </a>
                 <ul class="nav-sub">
                     <li><a href="<?= base_url(); ?>index.php/main?select=verCotizaciones">Solicitudes de cotizaciones</a>
                     </li>
                     <li><a href="<?= base_url(); ?>index.php/main?op=cotizador">Cotizador</a>
                     </li>
-    <!--                <li><a href="<?= base_url(); ?>index.php/main?op=agregarusuario">Agregar Usuarios</a>
-                    </li>-->
 
 
 
@@ -126,40 +132,25 @@
 
                 </ul>
             </li>
-            <!--        <li class="nav-dropdown">
-                        <a href="#" title="Maps">
-                            <i class="fa fa-shopping-cart"></i> Finalizar Pedidos
-                        </a>
-                        <ul class="nav-sub">
-                            <li><a href="<?= base_url(); ?>index.php/main?op=entregaDespacho">Entregar Pedido</a>
-                            </li>
-                            <li><a href="<?= base_url(); ?>index.php/main?op=buscarcliente">Estado Pedidos</a>
-                            </li>
-                            <li><a href="<?= base_url(); ?>index.php/main?op=agregarcliente"> Clientes</a>
-                            </li>
-            
-                        </ul>
-                    </li>-->
+
             <?php
         }
 
         if ($_SESSION["perfil"] == 'despachador') {
             ?>
-            
+
             <li class="nav-dropdown">
                 <a href="#" title="Maps">
                     <i class="fa fa-truck"></i> Pedidos
                 </a>
                 <ul class="nav-sub">
-    <!--                <li><a href="<?= base_url(); ?>index.php/main?op=pedido">Realizar Pedidos</a>
-                    </li>-->
                     <li><a href="<?= base_url(); ?>index.php/main?select=verPedidos">Estado Pedidos</a>
                     </li>
                 </ul>
             </li>
             <li class="nav-dropdown">
                 <a href="#" title="Maps">
-                    <i class="fa fa-truck"></i> Facturas/Guias
+                    <i class="fa fa-list-alt"></i> Facturas/Guias
                 </a>
                 <ul class="nav-sub">
                     <li><a href="<?= base_url(); ?>index.php/main?op=verFacturas">Ver Facturas y guias</a>
@@ -180,34 +171,28 @@
             </li>
             <?php
         }
-        
-         if ($_SESSION["perfil"] == 'llenador') {
+
+        if ($_SESSION["perfil"] == 'llenador') {
             ?>
-            
+
             <li class="nav-dropdown">
                 <a href="#" title="Maps">
-                    <i class="fa fa-truck"></i> Mañana
+                    <i class="fa  fa-tint"></i>Stock Bidones
                 </a>
                 <ul class="nav-sub">
-                    <li><a href="<?= base_url(); ?>index.php/main?select=verPedidos">Registrar Bidones</a>
+                    <li><a href="<?= base_url(); ?>index.php/main?op=stockManana">Registrar Mañana</a>
                     </li>
-                </ul>
-            </li>
-            <li class="nav-dropdown">
-                <a href="#" title="Maps">
-                    <i class="fa fa-truck"></i> Tarde
-                </a>
-                <ul class="nav-sub">
-                    <li><a href="<?= base_url(); ?>index.php/main?select=verPedidos">Registrar Bidones</a>
+
+                    <li><a href="<?= base_url(); ?>index.php/main?select=stockTarde">Registrar Tarde</a>
                     </li>
 
                 </ul>
             </li>
-            
+
             <?php
         }
         ?>
-        
-        
+
+
     </ul>
 </nav>

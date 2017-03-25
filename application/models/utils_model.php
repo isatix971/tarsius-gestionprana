@@ -40,7 +40,7 @@ class Utils_model extends CI_Model {
     function get_despachador() {
 
         $this->db->select('*');
-        $this->db->like('perfil', '2');
+        $this->db->like('perfil', 'despachador');
         $query = $this->db->get('usuario');
 
 

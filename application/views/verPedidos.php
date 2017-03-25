@@ -37,7 +37,10 @@
 
                             if ($row['estado'] == 'despacho') {
                                 echo "<tr class='success'>";
-                            } else {
+                            }elseif ($row['estado'] == 'pendiente') {
+                                echo "<tr class='danger'>";
+                            }
+                            else {
                                 echo "<tr>";
                             }
 

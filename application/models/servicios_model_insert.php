@@ -165,13 +165,12 @@ class Servicios_model_insert extends CI_Model {
             $nombreContacto = $this->input->post("nombreContacto");
             $correoContacto = $this->input->post("correoContacto");
             $clave = $this->input->post("clave");
-            $checkadmin = $this->input->post("checkadmin");
-            $checkdespa = $this->input->post("checkdespa");
-            $checksecre = $this->input->post("checksecre");
+            $perfil = $this->input->post("perfil");
+
 
             $sql = "INSERT INTO usuario (id,nombre,correo,clave,perfil)
                 VALUES (nextval('perfil_id_seq'::regclass),'$nombreContacto','$correoContacto','$clave'"
-                    . ",'$checkadmin,$checkdespa,$checksecre')";
+                    . ",'$perfil')";
             try {
                 $result = $this->db->query($sql);
                 if (!$result) {
@@ -191,11 +190,6 @@ class Servicios_model_insert extends CI_Model {
             $b20devueltos = $this->input->post("b20devueltos");
             $comentarios = $this->input->post("comentarios");
             $estadopago = $this->input->post("estadopago");
-
-
-
-
-
 //            id de producto es 1 que corresponde a los botellones de 20L
 
             $sql = "INSERT INTO pago_devolucion_envase (id,id_pedido,id_producto,cantidad_devuelta,fecha_devolucion,comentarios,estado_pago)
@@ -222,7 +216,54 @@ class Servicios_model_insert extends CI_Model {
             }
         }
 
+        if ($nombre_fun == 'almacenarStockManana') {
 
+            $b20llenos = $this->input->post("envVacios");
+            $b20vacios = $this->input->post("envLLenos");
+
+            $idLLenador = 1;
+            
+            $sql = "INSERT INTO stock_llenado (id_llenador,manana_tarde,llenos,vacios,fecha) "
+                    . "VALUES ($idLLenador,'manana',$b20llenos,$b20vacios,now())";
+
+            try {
+                $result = $this->db->query($sql);
+
+                if (!$result) {
+                    throw new Exception('error in query');
+                    return false;
+                }
+                
+
+                return 'Stock almacenado correctamente';
+            } catch (Exception $e) {
+                return false;
+            }
+        }
+        if ($nombre_fun == 'almacenarStockTarde') {
+
+            $b20llenos = $this->input->post("envVacios");
+            $b20vacios = $this->input->post("envLLenos");
+
+            $idLLenador = 1;
+            
+            $sql = "INSERT INTO stock_llenado (id_llenador,manana_tarde,llenos,vacios,fecha) "
+                    . "VALUES ($idLLenador,'tarde',$b20llenos,$b20vacios,now())";
+
+            try {
+                $result = $this->db->query($sql);
+
+                if (!$result) {
+                    throw new Exception('error in query');
+                    return false;
+                }
+                
+
+                return 'Stock almacenado correctamente';
+            } catch (Exception $e) {
+                return false;
+            }
+        }
 
         //envia mensaje 
         if ($nombre_fun == 'envioCotizacion') {
@@ -234,6 +275,5 @@ class Servicios_model_insert extends CI_Model {
     }
 
 }
-
 
 ?>
