@@ -56,7 +56,12 @@
 
                                 echo "<td>" . $row['factura'] . "</td>";
                                 echo "<td>" . $row['guia'] . "</td>";
-                                echo "<td>" . $row['estado_pago'] . "</td>";
+                                if ($row['estado_pago'] == "ok") {
+                                    echo "<td> <span class='label label-success'>Pagado</span> </td>";
+                                } else {
+                                    echo "<td> <span class='label label-danger'>Pendiente</span> </td>";
+                                }
+
                                 echo "</tr>";
                             endforeach;
                             echo "</tbody>";

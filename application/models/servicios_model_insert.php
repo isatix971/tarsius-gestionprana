@@ -97,8 +97,9 @@ class Servicios_model_insert extends CI_Model {
             $maquinaDetalle = $this->input->post("mqfcDetalle");
             $fechaEstimada = $this->input->post("fechaEstimada");
 
-            $nfactura = $this->input->post("nfactura");
-            $nguia = $this->input->post("nguia");
+//            deprecado
+//            $nfactura = $this->input->post("nfactura");
+//            $nguia = $this->input->post("nguia");
 
             if ($nfactura == '') {
                 $nfactura = 0;
@@ -169,7 +170,7 @@ class Servicios_model_insert extends CI_Model {
 
 
             $sql = "INSERT INTO usuario (id,nombre,correo,clave,perfil)
-                VALUES (nextval('perfil_id_seq'::regclass),'$nombreContacto','$correoContacto','$clave'"
+                VALUES (nextval('usuarios_id_seq'::regclass),'$nombreContacto','$correoContacto','$clave'"
                     . ",'$perfil')";
             try {
                 $result = $this->db->query($sql);
@@ -223,8 +224,8 @@ class Servicios_model_insert extends CI_Model {
 
             $idLLenador = 1;
             
-            $sql = "INSERT INTO stock_llenado (id_llenador,manana_tarde,llenos,vacios,fecha) "
-                    . "VALUES ($idLLenador,'manana',$b20llenos,$b20vacios,now())";
+            $sql = "INSERT INTO stock_llenado (id_llenador,manana_tarde,llenos,vacios,fecha,llenado_diario) "
+                    . "VALUES ($idLLenador,'manana',$b20llenos,$b20vacios,now(),0)";
 
             try {
                 $result = $this->db->query($sql);
@@ -244,11 +245,12 @@ class Servicios_model_insert extends CI_Model {
 
             $b20llenos = $this->input->post("envVacios");
             $b20vacios = $this->input->post("envLLenos");
+            $llenado = $this->input->post("llenado");
 
             $idLLenador = 1;
             
-            $sql = "INSERT INTO stock_llenado (id_llenador,manana_tarde,llenos,vacios,fecha) "
-                    . "VALUES ($idLLenador,'tarde',$b20llenos,$b20vacios,now())";
+            $sql = "INSERT INTO stock_llenado (id_llenador,manana_tarde,llenos,vacios,fecha,llenado_diario) "
+                    . "VALUES ($idLLenador,'tarde',$b20llenos,$b20vacios,now(),$llenado)";
 
             try {
                 $result = $this->db->query($sql);

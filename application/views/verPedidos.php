@@ -37,10 +37,9 @@
 
                             if ($row['estado'] == 'despacho') {
                                 echo "<tr class='success'>";
-                            }elseif ($row['estado'] == 'pendiente') {
+                            } elseif ($row['estado'] == 'pendiente') {
                                 echo "<tr class='danger'>";
-                            }
-                            else {
+                            } else {
                                 echo "<tr>";
                             }
 
@@ -90,8 +89,8 @@
     $(document).ready(function () {
         $('#pedidos').dataTable();
     });
-    
-    
+
+
     function asignarPedido(id) {
         html = "";
         html += "<div class='modal-dialog'>";
@@ -101,9 +100,32 @@
         html += "<h4 class='modal-title' id='myModalLabel'>Asignar Despacho de pedido</h4>";
         html += "</div>";
         html += "<div class='modal-body' id='despachomodal'>";
-        html += "<p>ID Pedido:  " + id + "</p>";
+        
+        html += "<form class='form-horizontal' role='form'>";
+        html += "<div class='form-group has-warning'>";
+
+        html += "<label class='col-sm-3 control-label'>ID Pedido:  " + id + "</label>";
+        html += "<div class='col-sm-7'>";
+
+
         html += "<select  required = '' id = 'despachador' name = 'despachador' class = 'form - control input - lg' >";
         html += "</select>";
+        html += "</div>";
+        html += "</div>";
+
+        html += "<div class='form-group has-warning'>";
+        html += "<label class='col-sm-3 control-label'>Ingrese Factura</label>";
+        html += "<div class='col-sm-7'>";
+        html += "<input type='number' placeholder='Ingrese numero' id='nfactura' name='nfactura'  class='form-control '>";
+        html += "</div>";
+        html += "</div>";
+        html += "<div class='form-group has-warning'>";
+        html += "<label class='col-sm-3 control-label'>Ingrese Guia</label>";
+        html += "<div class='col-sm-7'>";
+        html += "<input type='number' placeholder='Ingrese numero' id='nguia' name='nguia'  class='form-control '>";
+        html += "</div>";
+        html += "</div>";
+        html += "</form>";
 
         html += "</div>";
         html += "<div class='modal-footer'>";
@@ -119,10 +141,12 @@
 
     function guardarDespacho(id) {
         var idd = $('#despachador option:selected').val();
+        var nfactura = document.getElementById("nfactura").value;
+        var nguia = document.getElementById("nguia").value;
         $.ajax({
             type: "POST",
             url: "<?php echo site_url('main?update=updateDespacho'); ?>",
-            data: {idpedido: id, iddespachador: idd}
+            data: {idpedido: id, iddespachador: idd, nfactura: nfactura, nguia:nguia}
         })
                 .done(function (respuesta) {
                     alert(respuesta);

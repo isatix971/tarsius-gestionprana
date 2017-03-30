@@ -79,18 +79,7 @@
                                 </div>
 
                             </div>
-                            <div class="form-group has-warning">
-                                <label class="col-sm-3 control-label">Ingrese Factura</label>
-                                <div class="col-sm-6">
-                                    <input type="number" placeholder="Ingrese numero" id="b20" name="nfactura"  class="form-control ">
-                                </div>
-                            </div>
-                            <div class="form-group has-warning">
-                                <label class="col-sm-3 control-label">Ingrese Guia</label>
-                                <div class="col-sm-6">
-                                    <input type="number" placeholder="Ingrese numero" id="b20" name="nguia"  class="form-control ">
-                                </div>
-                            </div>
+                           
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Fecha estimada de entrega</label>
                                 <div class="col-sm-6">

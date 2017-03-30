@@ -32,22 +32,20 @@ class Servicios_model_select extends CI_Model {
             $nomEmpresa = $this->input->post("nomEmpresa");
             if ($nomEmpresa != '') {
                 $query = $this->db->query("select cli.nombre_rzn_social,
-                cli.rut, cli.dv,con.nombre,pdd.id, pdd.fecha_pedido,
-                pdd.fecha_entrega,pdd.factura, pdd.guia,pde.estado_pago
+                cli.rut, cli.dv,con.nombre,pdd.id, to_char(pdd.fecha_pedido,'DD-MM-YYYY - HH:mi') as fecha_pedido,
+                to_char(pdd.fecha_entrega,'DD-MM-YYYY - HH:mi') as fecha_entrega,pdd.factura, pdd.guia,pde.estado_pago
         from pedido pdd, contacto con, cliente cli, pago_devolucion_envase pde
         where pdd.rut_contacto_cliente = con.rut_contacto and
         cli.rut = con.rut_cliente and pde.id_pedido = pdd.id
         and cli.rut =" . $nomEmpresa);
             } else {
                 $query = $this->db->query("select cli.nombre_rzn_social,
-                cli.rut, cli.dv,con.nombre,pdd.id, pdd.fecha_pedido,
-                pdd.fecha_entrega,pdd.factura, pdd.guia,pde.estado_pago
+                cli.rut, cli.dv,con.nombre,pdd.id, to_char(pdd.fecha_pedido,'DD-MM-YYYY - HH:mi') as fecha_pedido,
+                to_char(pdd.fecha_entrega,'DD-MM-YYYY - HH:mi') as fecha_entrega,pdd.factura, pdd.guia,pde.estado_pago
         from pedido pdd, contacto con, cliente cli, pago_devolucion_envase pde
         where pdd.rut_contacto_cliente = con.rut_contacto and
         cli.rut = con.rut_cliente and pde.id_pedido = pdd.id");
             }
-
-            
 
             return $query;
         }

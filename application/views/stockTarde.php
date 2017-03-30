@@ -24,6 +24,12 @@
                                     <input type="number" placeholder="Cantidad" required="" id="envLLenos" name="envLLenos" class="form-control">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Total de envases llenados</label>
+                                <div class="col-sm-6">
+                                    <input type="number" placeholder="Cantidad" required="" id="llenado" name="llenado" class="form-control">
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <div class="col-sm-offset-8 col-sm-10">

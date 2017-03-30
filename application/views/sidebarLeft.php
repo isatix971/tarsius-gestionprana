@@ -72,7 +72,7 @@
                     <li><a href="<?= base_url(); ?>index.php/main?op=stockManana">Registrar Mañana</a>
                     </li>
 
-                    <li><a href="<?= base_url(); ?>index.php/main?select=stockTarde">Registrar Bidones</a>
+                    <li><a href="<?= base_url(); ?>index.php/main?select=stockTarde">Registrar Tarde</a>
                     </li>
 
                 </ul>
