@@ -219,8 +219,8 @@ class Servicios_model_insert extends CI_Model {
 
         if ($nombre_fun == 'almacenarStockManana') {
 
-            $b20llenos = $this->input->post("envVacios");
-            $b20vacios = $this->input->post("envLLenos");
+            $b20vacios  = $this->input->post("envVacios");
+            $b20llenos = $this->input->post("envLLenos");
 
             $idLLenador = 1;
             
@@ -243,14 +243,43 @@ class Servicios_model_insert extends CI_Model {
         }
         if ($nombre_fun == 'almacenarStockTarde') {
 
-            $b20llenos = $this->input->post("envVacios");
-            $b20vacios = $this->input->post("envLLenos");
+            $b20vacios  = $this->input->post("envVacios");
+            $b20llenos = $this->input->post("envLLenos");
             $llenado = $this->input->post("llenado");
 
             $idLLenador = 1;
             
             $sql = "INSERT INTO stock_llenado (id_llenador,manana_tarde,llenos,vacios,fecha,llenado_diario) "
                     . "VALUES ($idLLenador,'tarde',$b20llenos,$b20vacios,now(),$llenado)";
+
+            try {
+                $result = $this->db->query($sql);
+
+                if (!$result) {
+                    throw new Exception('error in query');
+                    return false;
+                }
+                
+
+                return 'Stock almacenado correctamente';
+            } catch (Exception $e) {
+                return false;
+            }
+        }
+        if ($nombre_fun == 'almacenarCargaDescarga') {
+
+            $b20vacios  = $this->input->post("envVacios");
+            $b20llenos = $this->input->post("envLLenos");
+            $usuario = $this->input->post("usuario");
+
+            $idLLenador = 1;
+            $id_producto =1;
+            
+//            $sql = "INSERT INTO car (id_llenador,manana_tarde,llenos,vacios,fecha,llenado_diario) "
+//                    . "VALUES ($idLLenador,'tarde',$b20llenos,$b20vacios,now(),$llenado)";
+            
+            $sql = "INSERT INTO carga_descarga (fecha,id_llenador,id_usuario,id_producto,llenos,vacios)"
+                    . "VALUES (now(),$idLLenador,$usuario,$id_producto,$b20llenos,$b20vacios)";
 
             try {
                 $result = $this->db->query($sql);

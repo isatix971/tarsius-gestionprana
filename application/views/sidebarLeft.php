@@ -71,10 +71,10 @@
                 <ul class="nav-sub">
                     <li><a href="<?= base_url(); ?>index.php/main?op=stockManana">Registrar Mañana</a>
                     </li>
-
                     <li><a href="<?= base_url(); ?>index.php/main?select=stockTarde">Registrar Tarde</a>
                     </li>
-
+                    <li><a href="<?= base_url(); ?>index.php/main?select=cargaDescarga">Carga y Descarga</a>
+                    </li>
                 </ul>
             </li>
 
@@ -182,10 +182,10 @@
                 <ul class="nav-sub">
                     <li><a href="<?= base_url(); ?>index.php/main?op=stockManana">Registrar Mañana</a>
                     </li>
-
                     <li><a href="<?= base_url(); ?>index.php/main?select=stockTarde">Registrar Tarde</a>
                     </li>
-
+                    <li><a href="<?= base_url(); ?>index.php/main?select=cargaDescarga">Carga y Descarga</a>
+                    </li>
                 </ul>
             </li>
 

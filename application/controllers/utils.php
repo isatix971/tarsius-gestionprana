@@ -34,6 +34,10 @@ class Utils extends CI_Controller {
 
         echo $this->utils_model->get_despachador();
     }
+        function get_usuarios() {
+
+        echo $this->utils_model->get_usuario();
+    }
 
     function get_pedidosDespachador() {
 

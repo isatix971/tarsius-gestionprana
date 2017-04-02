@@ -41,8 +41,29 @@ class Utils_model extends CI_Model {
 
         $this->db->select('*');
         $this->db->like('perfil', 'despachador');
+        $this->db->or_like('perfil', 'administrador');
+
         $query = $this->db->get('usuario');
 
+
+        if ($query->num_rows() > 0) {
+            foreach ($query->result_array() as $row) {
+                $new_row['label'] = htmlentities(stripslashes($row['nombre']));
+                $new_row['value'] = htmlentities(stripslashes($row['id']));
+                $row_set[] = $new_row; //build an array
+            }
+            return json_encode($row_set); //format the array into json data
+        }
+    }
+
+    function get_usuario() {
+
+        $this->db->select('*');
+        $this->db->like('perfil', 'despachador');
+        $this->db->or_like('perfil', 'administrador');
+        $this->db->or_like('perfil', 'oficina');
+
+        $query = $this->db->get('usuario');
 
         if ($query->num_rows() > 0) {
             foreach ($query->result_array() as $row) {
@@ -94,7 +115,7 @@ class Utils_model extends CI_Model {
     }
 
     function get_cliente_existe($rutdv1) {
- 
+
         $this->db->select('*');
         $this->db->from('cliente ');
         $this->db->where('rut', $rutdv1);
@@ -107,8 +128,9 @@ class Utils_model extends CI_Model {
             return "true";
         }
     }
+
     function get_contacto_existe($rutdv1) {
- 
+
         $this->db->select('*');
         $this->db->from('contacto ');
         $this->db->where('rut_contacto', $rutdv1);
