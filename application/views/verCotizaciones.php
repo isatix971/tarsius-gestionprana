@@ -55,7 +55,7 @@
                             
                             echo "<button onClick='crearCotizacion(";
                             echo $row['id'];
-                            echo ")' type='button' class='btn btn-primary'>Enviar</button>";
+                            echo ")' type='button' class='btn btn-primary'>Enviar Respuesta</button>";
 
                             echo "<button onClick='eliminarCotizacion(" . $row['id'] . ")' type='button' class='btn btn-danger'>Eliminar</button>";
                             echo "</div>";
