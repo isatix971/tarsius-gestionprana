@@ -27,6 +27,8 @@
                     </li>
                     <li><a href="<?= base_url(); ?>index.php/main?op=contactoCliente">Agregar Contacto Clientes</a>
                     </li>
+                    <li><a href="<?= base_url(); ?>index.php/main?op=agregarDireccionCliente">Agregar Direccion Clientes</a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-dropdown">
@@ -92,9 +94,6 @@
                     </li>
                     <li><a href="<?= base_url(); ?>index.php/main?op=cotizador">Cotizador</a>
                     </li>
-
-
-
                 </ul>
             </li>
             <li class="nav-dropdown">
@@ -119,6 +118,7 @@
                     <li><a href="<?= base_url(); ?>index.php/main?select=verPedidos">Estado Pedidos</a>
                     </li>
                 </ul>
+                
             </li>
             <li class="nav-dropdown">
                 <a href="#" title="Maps">

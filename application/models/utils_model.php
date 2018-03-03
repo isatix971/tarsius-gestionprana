@@ -11,11 +11,11 @@ class Utils_model extends CI_Model {
 
     function get_cliente($q) {
         $this->db->select('*');
-        $this->db->like('nombre_rzn_social', $q);
+        $this->db->like('nombre_rzn_social', strtoupper($q));
         $query = $this->db->get('cliente');
         if ($query->num_rows() > 0) {
             foreach ($query->result_array() as $row) {
-                $new_row['label'] = htmlentities(stripslashes($row['nombre_rzn_social']));
+                $new_row['label'] = strtoupper(htmlentities(stripslashes($row['nombre_rzn_social'])));
                 $new_row['value'] = htmlentities(stripslashes($row['rut']));
                 $row_set[] = $new_row; //build an array
             }
@@ -29,8 +29,8 @@ class Utils_model extends CI_Model {
         $query = $this->db->get('contacto');
         if ($query->num_rows() > 0) {
             foreach ($query->result_array() as $row) {
-                $new_row['label'] = htmlentities(stripslashes($row['nombre']));
-                $new_row['value'] = htmlentities(stripslashes($row['rut_contacto']));
+                $new_row['label'] = strtoupper(htmlentities(stripslashes($row['nombre'])));
+                $new_row['value'] = htmlentities(stripslashes($row['id_contacto']));
                 $row_set[] = $new_row; //build an array
             }
             return json_encode($row_set); //format the array into json data
@@ -84,13 +84,15 @@ class Utils_model extends CI_Model {
 
         $this->db->select('*');
         $this->db->from('pedido pe');
-        $this->db->join('contacto co', 'pe.rut_contacto_cliente = co.rut_contacto');
+        $this->db->join('contacto co', 'pe.id_contacto_cliente = co.id_contacto');
         $this->db->join('cliente cl', 'co.rut_cliente = cl.rut');
         $this->db->join('despacho des', 'des.id_pedido = pe.id');
         $this->db->where('des.id_despachador', $q);
         $this->db->where('pe.estado', 'despacho');
         $query = $this->db->get();
 
+        
+        
 //        return $query->result();
         if ($query->num_rows() > 0) {
             foreach ($query->result_array() as $row) {

@@ -14,16 +14,16 @@ class Servicios_model_insert extends CI_Model {
 
         if ($nombre_fun == 'almacenarCliente') {
 
-            $nomEmpresa = $this->input->post('nomEmpresa');
+            $nomEmpresa = strtoupper($this->input->post('nomEmpresa'));
             $rutEmpresa = $this->input->post('rutEmpresa');
-            $giro = $this->input->post('giro');
+            $giro = strtoupper($this->input->post('giro'));
             $telefono = $this->input->post('telefono');
-            $calle = $this->input->post('calle');
+            $calle = strtoupper($this->input->post('calle'));
             $numero = $this->input->post('numero');
             $depto = $this->input->post('depto');
-            $ciudad = $this->input->post('ciudad');
-            $nombreContacto = $this->input->post('nombreContacto');
-            $correoContacto = $this->input->post('correoContacto');
+            $ciudad = strtoupper($this->input->post('ciudad'));
+            $nombreContacto = strtoupper($this->input->post('nombreContacto'));
+            $correoContacto = strtoupper($this->input->post('correoContacto'));
             $rutContacto = $this->input->post('rutContacto');
             $telefonoContacto = $this->input->post('telefonoContacto');
 
@@ -40,8 +40,14 @@ class Servicios_model_insert extends CI_Model {
             $rut2 = str_replace(".", "", $rutContacto);
             $rutdv2 = explode('-', $rut2);
 
-            $sql = "INSERT INTO contacto (nombre,correo,contrasena,rut_cliente,rut_contacto,dv_contacto,telefono)"
-                    . "VALUES ('" . $nombreContacto . "','" . $correoContacto . "','contraseña'," . $rutdv1[0] . "," . $rutdv2[0] . ",'" . $rutdv2[1] . "'," . $telefonoContacto . ")";
+            if ($rutContacto!=""){
+                $sql = "INSERT INTO contacto (nombre,correo,contrasena,rut_cliente,rut_contacto,dv_contacto,telefono)"
+                    . "VALUES ('$nombreContacto','$correoContacto','contrasena',$rutdv1[0],$rutdv2[0],'$rutdv2[1]',$telefonoContacto)";
+            }
+            else {
+                $sql = "INSERT INTO contacto (nombre,correo,contrasena,rut_cliente,telefono)"
+                               . "VALUES ('$nombreContacto','$correoContacto','contrasena',$rutdv1[0],$telefonoContacto)";
+            }
             $this->db->query($sql);
 
             $sql = "INSERT INTO direccion (rut_cliente,calle,numero,casa_depto,comuna,ciudad)"
@@ -61,19 +67,23 @@ class Servicios_model_insert extends CI_Model {
         }
         if ($nombre_fun == 'almacenarContactoCliente') {
 
-            $rutEmpresa = $this->input->post("nomEmpresa");
-            $nombreContacto = $this->input->post("nombreContacto");
-            $correoContacto = $this->input->post("correoContacto");
+            $rutEmpresa = strtoupper($this->input->post("nomEmpresa"));
+            $nombreContacto = strtoupper($this->input->post("nombreContacto"));
+            $correoContacto = strtoupper($this->input->post("correoContacto"));
             $rutContacto = $this->input->post("rutContacto");
             $telefonoContacto = $this->input->post("telefonoContacto");
 
 
             $rut2 = str_replace(".", "", $rutContacto);
             $rutdv2 = explode('-', $rut2);
-
-            $sql = "INSERT INTO contacto (nombre,correo,contrasena,rut_cliente,rut_contacto,dv_contacto,telefono)"
-                    . "VALUES ('$nombreContacto','$correoContacto','contraseña',$rutEmpresa,$rutdv2[0],'$rutdv2[1]',$telefonoContacto)";
-
+            if ($rutContacto!=""){
+                $sql = "INSERT INTO contacto (nombre,correo,contrasena,rut_cliente,rut_contacto,dv_contacto,telefono,id_contacto)"
+                    . "VALUES ('$nombreContacto','$correoContacto','contrasena',$rutEmpresa,$rutdv2[0],'$rutdv2[1]',$telefonoContacto,nextval('id_contacto_seq'))";
+            }
+            else {
+                $sql = "INSERT INTO contacto (nombre,correo,contrasena,rut_cliente,telefono,id_contacto)"
+                               . "VALUES ('$nombreContacto','$correoContacto','contrasena',$rutEmpresa,$telefonoContacto,nextval('id_contacto_seq'))";
+             }
             try {
                 $result = $this->db->query($sql);
                 if (!$result) {
@@ -86,11 +96,41 @@ class Servicios_model_insert extends CI_Model {
                 return false;
             }
         }
+        if ($nombre_fun == 'almacenarDireccionCliente') {
+            
+            
+            $rutEmpresa = $this->input->post('rutEmpresa');
+            $giro = strtoupper($this->input->post('giro'));
+            $telefono = $this->input->post('telefono');
+            $calle = strtoupper($this->input->post('calle'));
+            $numero = $this->input->post('numero');
+            $depto = $this->input->post('depto');
+            $ciudad = strtoupper($this->input->post('ciudad'));
+            
+            $rut1 = str_replace(".", "", $rutEmpresa);
+            $rutdv1 = explode('-', $rut1);
+            
+            $sql = "INSERT INTO direccion (rut_cliente,calle,numero,casa_depto,comuna,ciudad)"
+                    . "VALUES (" . $rutdv1[0] . ",'" . $calle . "'," . $numero . ",'" . $depto . "','" . $ciudad . "','" . $ciudad . "')";
+            
+            try {
+                $result = $this->db->query($sql);
+                if (!$result) {
+                    throw new Exception('error in query');
+                    return false;
+                }
+
+                return 'Contacto almacenado con exito!';
+            } catch (Exception $e) {
+                return false;
+            }
+            
+        }
 
 
         if ($nombre_fun == 'almacenarPedido') {
             $nomEmpresa = $this->input->post("nomEmpresa");
-            $rutContacto = $this->input->post("contactoCliente");
+            $idContacto = $this->input->post("contactoCliente");
             $cantidadProducto = $this->input->post("b20");
             $maquinaCantidad = $this->input->post("mqfc");
             $dispensadorCantidad = $this->input->post("dispensador");
@@ -101,22 +141,21 @@ class Servicios_model_insert extends CI_Model {
 //            $nfactura = $this->input->post("nfactura");
 //            $nguia = $this->input->post("nguia");
 
-            if ($nfactura == '') {
+//            if ($nfactura == '') {
                 $nfactura = 0;
-            }
-            if ($nguia == '') {
+//            }
+//            if ($nguia == '') {
                 $nguia = 0;
-            }
+//            }
 
             //valores por defecto que pueden ser modificados para botellon b20
             $idProducto = 1;
             $valorProducto = 2400;
             //
-
             $estado = "pendiente";
 
-            $sql = "INSERT INTO pedido (id,rut_contacto_cliente,fecha_pedido,fecha_estimada,fecha_entrega,factura,guia,estado)"
-                    . "VALUES (nextval('pedido_seq')," . $rutContacto . ",now(),'" . $fechaEstimada . "',null,$nfactura,$nguia,'$estado')";
+            $sql = "INSERT INTO pedido (id,id_contacto_cliente,fecha_pedido,fecha_estimada,fecha_entrega,factura,guia,estado)"
+                    . "VALUES (nextval('pedido_seq')," . $idContacto . ",now(),'" . $fechaEstimada . "',null,$nfactura,$nguia,'$estado')";
 
             $result_seq = $this->utils_model->get_last_pedido();
             $sql2 = "INSERT INTO pedido_producto (id_pedido,precio_unidad,cantidad,id_producto,detalle)"

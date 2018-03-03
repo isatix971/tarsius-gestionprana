@@ -70,12 +70,14 @@
                                     <input type="email" placeholder="Ingrese Correo" required="" id="correoContacto" name="correoContacto" class="form-control">
                                 </div>
                             </div>
-                            <div class="form-group">
+<!--                            <div class="form-group">
                                 <label class="col-sm-3 control-label">Rut</label>
                                 <div class="col-sm-6">
                                     <input onblur="validarContactoRut('rutContacto')" type="text" placeholder="Ingrese Rut" required="" id="rutContacto" name="rutContacto" class="form-control">
+                                <input  type="text" placeholder="Ingrese Rut"  id="rutContacto" name="rutContacto" class="form-control">
+
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Telefono</label>
                                 <div class="col-sm-6">
