@@ -115,6 +115,18 @@ class Utils_model extends CI_Model {
             return $valor + 1; //se agrega 1 para ver valor real
         }
     }
+    function get_last_pedidoOficina() {
+        $this->db->select('*');
+
+        $query = $this->db->get('ventas_oficina_seq');
+        if ($query->num_rows() > 0) {
+            foreach ($query->result_array() as $row) {
+                $valor = htmlentities(stripslashes($row['last_value']));
+            }
+            return $valor + 1; //se agrega 1 para ver valor real
+        }
+    }
+    
 
     function get_cliente_existe($rutdv1) {
 

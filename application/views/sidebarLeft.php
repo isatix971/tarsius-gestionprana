@@ -4,6 +4,16 @@
         <?php
         if ($_SESSION["perfil"] == 'administrador') {
             ?>
+         <li class="nav-dropdown">
+                <a href="#" title="Maps">
+                    <i class="fa fa-globe"></i> Ventas Oficina
+                </a>
+                <ul class="nav-sub">
+                    <li><a href="<?= base_url(); ?>index.php/main?select=ventasOficina">Registro de venta</a>
+                    </li>
+                                   
+                </ul>
+            </li>
             <li class="nav-dropdown">
                 <a href="#" title="Maps">
                     <i class="fa fa-wrench"></i> Herramientas
@@ -47,7 +57,9 @@
                     <i class="fa fa-list-alt"></i> Facturas/Guias
                 </a>
                 <ul class="nav-sub">
-                    <li><a href="<?= base_url(); ?>index.php/main?op=verFacturas">Ver Facturas y guias</a>
+                    <li><a href="<?= base_url(); ?>index.php/main?op=verFacturas">Ver Facturas</a>
+                    </li>
+                    <li><a href="<?= base_url(); ?>index.php/main?op=verGuias">Ver Guias</a>
                     </li>
                     <li><a href="http://www.sii.cl/factura_electronica/factura_sii/factura_sii.htm">Facturas Electronicas</a>
                     </li>
@@ -125,7 +137,7 @@
                     <i class="fa fa-list-alt"></i> Facturas/Guias
                 </a>
                 <ul class="nav-sub">
-                    <li><a href="<?= base_url(); ?>index.php/main?op=verFacturas">Ver Facturas y guias</a>
+                    <li><a href="<?= base_url(); ?>index.php/main?op=verFacturas">Ver Facturas</a>
                     </li>
                     <li><a href="http://www.sii.cl/factura_electronica/factura_sii/factura_sii.htm">Facturas Electronicas</a>
                     </li>
@@ -153,7 +165,7 @@
                     <i class="fa fa-list-alt"></i> Facturas/Guias
                 </a>
                 <ul class="nav-sub">
-                    <li><a href="<?= base_url(); ?>index.php/main?op=verFacturas">Ver Facturas y guias</a>
+                    <li><a href="<?= base_url(); ?>index.php/main?op=verFacturas">Ver Facturas</a>
                     </li>
 
 

@@ -23,6 +23,9 @@
 
     <!-- DataTables-->
     <link rel="stylesheet" href="<?= base_url(); ?>content-lab/assets/plugins/dataTables/css/dataTables.css">
+    
+    <link rel="stylesheet" href="<?= base_url(); ?>content-lab/assets/plugins/morris/css/morris.css">
+
 
     <!--    css para autocompletar-->
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
@@ -43,11 +46,16 @@
     <script src="<?= base_url(); ?>content-lab/assets/plugins/waypoints/waypoints.min.js"></script>
     <script src="<?= base_url(); ?>content-lab/assets/plugins/switchery/switchery.min.js"></script>
     <script src="<?= base_url(); ?>content-lab/assets/js/application.js"></script>
-
-
+   
     <script src="<?= base_url(); ?>content-lab/assets/plugins/dataTables/js/jquery.dataTables.js"></script>
     <script src="<?= base_url(); ?>content-lab/assets/plugins/dataTables/js/dataTables.bootstrap.js"></script>
+    
+    <script src="<?= base_url(); ?>content-lab/assets/plugins/morris/js/morris.min.js"></script>
+    <script src="<?= base_url(); ?>content-lab/assets/plugins/morris/js/raphael.2.1.0.min.js"></script>
+    <script src="<?= base_url(); ?>content-lab/assets/plugins/morris/js/morris-example.js"></script>
 
+
+    <script src="<?= base_url(); ?>content-lab/assets/js/bootstrap-table-es-CL.js"></script>
 
     <script src="<?= base_url(); ?>content/js/validarut.js"></script>
 
