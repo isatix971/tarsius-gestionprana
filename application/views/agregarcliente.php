@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Direccion</label>
+                                <label class="col-sm-2 control-label">Direccion de despacho</label>
                                 <div class="col-sm-3">
                                     <label class="control-label">Calle </label>
                                     <input type="text" id="calle" name="calle" placeholder="Ingrese calle" class="form-control" >

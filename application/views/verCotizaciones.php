@@ -79,7 +79,9 @@
 </section>
 <script>
     $(document).ready(function () {
-        $('#cotizaciones').dataTable();
+        $('#cotizaciones').dataTable({
+            "order": [[ 0, "desc" ]]
+        });
     });
 
 

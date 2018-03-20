@@ -69,7 +69,12 @@ class Utils extends CI_Controller {
         echo $this->utils_model->get_contacto_existe($rutdv1[0]);
     }
     
-
+    function get_infoPedido() {
+        if (isset($_POST['id'])) {
+            $id = $_POST['id'];
+        }
+        echo $this->utils_model->get_infoPedido($id);
+    }
     function show() {
         $this->load->view('prueba'); //envío al usuario a la pag. de autenticación 
     }

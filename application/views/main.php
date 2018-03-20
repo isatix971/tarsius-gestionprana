@@ -15,6 +15,9 @@
             if (isset($op)) {
                 echo $this->load->view($op);
             }
+            else{
+                echo $this->load->view("vistaInicial");
+            }
             ?>
         </div>
         <?php

@@ -157,5 +157,23 @@ class Utils_model extends CI_Model {
             return "true";
         }
     }
+    function get_infoPedido($id) {
+        
+        $query = $this->db->query("select * 
+                                    from pedido pe, pedido_producto pepro, producto pro 
+                                    where pe.id = pepro.id_pedido and pepro.id_producto = pro.id
+                                    and pe.id =  ".$id);
+        
+        if ($query->num_rows() > 0) {
+            foreach ($query->result_array() as $row) {
+                $new_row['nombre'] = htmlentities(stripslashes( $row['nombre']));
+                $new_row['cantidad'] = htmlentities(stripslashes($row['cantidad']));
+                $new_row['precio'] = htmlentities(stripslashes($row['precio_unidad']));
+                $new_row['descripcion'] = htmlentities(stripslashes($row['descripcion']));
 
+                $row_set[] = $new_row; //build an array
+            }
+            return json_encode($row_set); //format the array into json data
+        }
+    }
 }
