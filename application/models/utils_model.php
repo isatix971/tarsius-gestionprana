@@ -92,11 +92,11 @@ class Utils_model extends CI_Model {
         $query = $this->db->get();
 
         
-        
+       
 //        return $query->result();
         if ($query->num_rows() > 0) {
             foreach ($query->result_array() as $row) {
-                $new_row['label'] = htmlentities(stripslashes("Cliente: " . $row['nombre'] . " -- Fecha Pedido:" . substr($row['fecha_pedido'], 0, 10)));
+                $new_row['label'] = htmlentities(stripslashes("ID: " . $row['id'] . " Cliente: " . $row['nombre_rzn_social'] . " -- Contacto: ". $row['nombre'] ." -- Fecha Pedido:" . substr($row['fecha_pedido'], 0, 10)));
                 $new_row['value'] = htmlentities(stripslashes($row['id']));
                 $row_set[] = $new_row; //build an array
             }
@@ -170,6 +170,8 @@ class Utils_model extends CI_Model {
                 $new_row['cantidad'] = htmlentities(stripslashes($row['cantidad']));
                 $new_row['precio'] = htmlentities(stripslashes($row['precio_unidad']));
                 $new_row['descripcion'] = htmlentities(stripslashes($row['descripcion']));
+                $new_row['comentario'] = htmlentities(stripslashes($row['comentario']));
+
 
                 $row_set[] = $new_row; //build an array
             }

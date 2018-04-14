@@ -119,6 +119,7 @@
                                     $totaldispen =0;
                                     $totaldispenplastico =0;
                                     $totalllave =0;
+                                    $totalenvaseb20=0;
                                     
                                     if($b20cantidad > 0){
                                         $totalb20 = $b20precio*$b20cantidad;
@@ -127,6 +128,15 @@
                                         . "<td>Botellones Retornables de 20 Litros.</td>"
                                         . "<td>".$b20precio."</td>"
                                         . "<td>".$totalb20."</td>"        
+                                        . "</tr>";
+                                    }
+                                    if($envaseb20cantidad > 0){
+                                        $totalenvaseb20 = $envaseb20precio*$envaseb20cantidad;
+                                        echo "<tr>"
+                                        . "<td>".$envaseb20cantidad."</td>"
+                                        . "<td>Envase Retornables de 20 Litros.</td>"
+                                        . "<td>".$envaseb20precio."</td>"
+                                        . "<td>".$totalenvaseb20."</td>"        
                                         . "</tr>";
                                     }if($b10cantidad > 0){
                                         $totalb10 = $b10precio*$b10cantidad;

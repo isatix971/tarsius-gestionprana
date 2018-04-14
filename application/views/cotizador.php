@@ -49,7 +49,7 @@
                                     <input type="text" placeholder="XX-XXXX XXX" required="" id="telefono" name="telefono" class="form-control" value="<?php echo set_value('telefono', @$postData[3]) ?>">                                        </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">Botellones 20L</label>
+                                <label class="col-sm-2 control-label">Botellones Recarga 20L</label>
                                 <div class="col-sm-3">
                                     <label class="control-label">Cantidad: </label>
                                     <input type="text" id="b20cantidad" name="b20cantidad" placeholder="Ingrese datos" class="form-control" >
@@ -59,6 +59,18 @@
                                     <input type="text" id="b20precio" name="b20precio" placeholder="Ingrese datos" class="form-control" >
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Botellones Envase Retornable 20L</label>
+                                <div class="col-sm-3">
+                                    <label class="control-label">Cantidad: </label>
+                                    <input type="text" id="b20cantidad" name="envaseb20cantidad" placeholder="Ingrese datos" class="form-control" >
+                                </div>
+                                <div class="col-sm-3">
+                                    <label class="control-label">Precio Neto: </label>
+                                    <input type="text" id="b20precio" name="envaseb20precio" placeholder="Ingrese datos" class="form-control" >
+                                </div>
+                            </div>
+                            
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Botellas 10L</label>
                                 <div class="col-sm-3">

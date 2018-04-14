@@ -41,12 +41,12 @@ class Servicios_model_insert extends CI_Model {
             $rutdv2 = explode('-', $rut2);
 
             if ($rutContacto!=""){
-                $sql = "INSERT INTO contacto (nombre,correo,contrasena,rut_cliente,rut_contacto,dv_contacto,telefono)"
-                    . "VALUES ('$nombreContacto','$correoContacto','contrasena',$rutdv1[0],$rutdv2[0],'$rutdv2[1]',$telefonoContacto)";
+                $sql = "INSERT INTO contacto (nombre,correo,contrasena,rut_cliente,rut_contacto,dv_contacto,telefono,id_contacto)"
+                    . "VALUES ('$nombreContacto','$correoContacto','contrasena',$rutdv1[0],$rutdv2[0],'$rutdv2[1]',$telefonoContacto,nextval('id_contacto_seq'))";
             }
             else {
-                $sql = "INSERT INTO contacto (nombre,correo,contrasena,rut_cliente,telefono)"
-                               . "VALUES ('$nombreContacto','$correoContacto','contrasena',$rutdv1[0],$telefonoContacto)";
+                $sql = "INSERT INTO contacto (nombre,correo,contrasena,rut_cliente,telefono,id_contacto)"
+                               . "VALUES ('$nombreContacto','$correoContacto','contrasena',$rutdv1[0],$telefonoContacto,nextval('id_contacto_seq'))";
             }
             $this->db->query($sql);
 
@@ -136,26 +136,20 @@ class Servicios_model_insert extends CI_Model {
             $dispensadorCantidad = $this->input->post("dispensador");
             $maquinaDetalle = $this->input->post("mqfcDetalle");
             $fechaEstimada = $this->input->post("fechaEstimada");
+            $comentario = $this->input->post("comentario");
 
-//            deprecado
-//            $nfactura = $this->input->post("nfactura");
-//            $nguia = $this->input->post("nguia");
+            $nfactura = 0;
 
-//            if ($nfactura == '') {
-                $nfactura = 0;
-//            }
-//            if ($nguia == '') {
-                $nguia = 0;
-//            }
-
+            $nguia = 0;
+            
             //valores por defecto que pueden ser modificados para botellon b20
             $idProducto = 1;
             $valorProducto = 2400;
-            //
+            
             $estado = "pendiente";
 
-            $sql = "INSERT INTO pedido (id,id_contacto_cliente,fecha_pedido,fecha_estimada,fecha_entrega,factura,guia,estado,estado_pago)"
-                    . "VALUES (nextval('pedido_seq')," . $idContacto . ",now(),'" . $fechaEstimada . "',null,$nfactura,$nguia,'$estado',null)";
+            $sql = "INSERT INTO pedido (id,id_contacto_cliente,fecha_pedido,fecha_estimada,fecha_entrega,factura,guia,estado,estado_pago,comentario)"
+                    . "VALUES (nextval('pedido_seq')," . $idContacto . ",now(),'" . $fechaEstimada . "',null,$nfactura,$nguia,'$estado',null,'$comentario')";
 
             $result_seq = $this->utils_model->get_last_pedido();
             $sql2 = "INSERT INTO pedido_producto (id_pedido,precio_unidad,cantidad,id_producto,detalle)"
@@ -166,7 +160,9 @@ class Servicios_model_insert extends CI_Model {
                     throw new Exception('error in query');
                     return false;
                 }
-                $result = $this->db->query($sql2);
+                if($cantidadProducto!= ''){
+                    $result = $this->db->query($sql2);
+                }
                 if (!$result) {
                     throw new Exception('error in query');
                     return false;
@@ -175,7 +171,7 @@ class Servicios_model_insert extends CI_Model {
                     $idProducto = 2;
                     $valorProducto = 100000;
                     $sql3 = "INSERT INTO pedido_producto (id_pedido,precio_unidad,cantidad,id_producto,detalle)"
-                            . "VALUES ($result_seq,$valorProducto,$cantidadProducto,$idProducto,'$maquinaDetalle')";
+                            . "VALUES ($result_seq,$valorProducto,$maquinaCantidad,$idProducto,'$maquinaDetalle')";
                     $result = $this->db->query($sql3);
                     if (!$result) {
                         throw new Exception('error in query');

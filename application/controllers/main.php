@@ -34,7 +34,7 @@ class Main extends CI_Controller {
             $tiempo_transcurrido = (strtotime($ahora) - strtotime($fechaGuardada));
 
             //comparamos el tiempo transcurrido 
-            if ($tiempo_transcurrido >= 1500) {
+            if ($tiempo_transcurrido >= 36000) {
                 //si pasaron 10 minutos o más 
                 session_destroy(); // destruyo la sesión 
                 $this->load->view('login'); //envío al usuario a la pag. de autenticación 

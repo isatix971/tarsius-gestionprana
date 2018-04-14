@@ -50,7 +50,6 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Pedido</label>
                                 <div class="col-sm-6">
-<!--                                    <input type="text" placeholder="nombre de cliente" required="" id="nomEmpresa" name="nomEmpresa" class="form-control" value="<?php echo $_SESSION["id"]; ?>">                                        -->
                                     <select  required="" id="idDespacho" name="idDespacho" class="form-control input-lg">
                                     </select>                                
                                 </div>
@@ -66,14 +65,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Forma de pago</label>
+                                <label class="col-sm-3 control-label" >Forma de pago</label>
                                 <div class="col-sm-6">
-                                    <label class="radio-inline">
-                                        <input class="icheck" type="radio" checked="" value="ok" name="estadopago">Pagado</label>
+                                    <label class="radio-inline" >
+                                        <input class="icheck" type="radio" value="ok" name="estadopago" required="">Pagado</label>
                                     <label class="radio-inline">
                                         <input class="icheck" type="radio" value="nok" name="estadopago">Pago pendiente</label>
-<!--                                    <label class="radio-inline">
-                                        <input class="icheck" type="radio" name="rad1">Option 3</label>-->
                                 </div>
                             </div>
 

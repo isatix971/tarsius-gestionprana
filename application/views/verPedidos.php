@@ -160,9 +160,11 @@
 
         html += "<table   id = 'tablaInfo' name = 'tablaInfo' class = 'table  table-bordered dataTable no-footer' >";
         html += "</table>";
+        html += "<label id='comentario' class='col-sm-3 control-label'>Comentario:   </label>";
         html += "</div>";
         html += "</div>";
         html += "</form>";
+        
 
         html += "</div>";
         html += "<div class='modal-footer'>";
@@ -246,6 +248,7 @@
                         
                         var nombre = document.createTextNode(objetos[i].nombre);
                         var cantidad = document.createTextNode(objetos[i].cantidad);
+
                         
                         celda1.appendChild(nombre);
                         celda2.appendChild(cantidad);
@@ -253,11 +256,15 @@
                         hilera.appendChild(celda1);
                         hilera.appendChild(celda2);
                        
-                        tblBody.appendChild(hilera);            
-                    }
- 
+                        tblBody.appendChild(hilera);    
+                        if(i===0){
+                            var comentarioResponse = objetos[i].comentario;
+                        }
+                    }                    
+                    document.getElementById('comentario').innerHTML = "Comentaios: "+comentarioResponse+"<br><br>";
+
                     tabla.appendChild(tblBody);
-                    body.appendChild(tabla);
+                    
                 });
     }
 </script>

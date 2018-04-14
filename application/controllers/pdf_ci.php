@@ -30,6 +30,9 @@ class Pdf_ci extends CI_Controller {
 
         $b20cantidad = $_POST['b20cantidad'];
         $b20precio = $_POST['b20precio'];
+        
+        $envaseb20cantidad = $_POST['envaseb20cantidad'];
+        $envaseb20precio = $_POST['envaseb20precio'];
 
         $b10cantidad = $_POST['b10cantidad'];
         $b10precio = $_POST['b10precio'];
@@ -47,6 +50,8 @@ class Pdf_ci extends CI_Controller {
             'telefono' => $telefono,
             'b20cantidad' => $b20cantidad,
             'b20precio' => $b20precio,
+            'envaseb20cantidad' => $envaseb20cantidad,
+            'envaseb20precio' => $envaseb20precio,
             'b10cantidad' => $b10cantidad,
             'b10precio' => $b10precio,
             'dispencant' => $_POST['dispencant'],

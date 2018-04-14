@@ -86,7 +86,12 @@
                                     <input required="" type="text" id="fechaEstimada" name="fechaEstimada">
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Comentarios</label>
+                                <div class="col-sm-6">
+                                    <input type="text" rows="5"  placeholder="Ingrese Comentario" id="comentario" name="comentario"  class="form-control ">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-8 col-sm-10">
                                     <input class="btn btn-primary" type="submit" value="Enviar" onclick="validar()">
