@@ -78,18 +78,17 @@ class Servicios_model_select extends CI_Model {
 
 
         if ($nombre_fun == 'verEnvasesDevueltos') {
-//            realiza diferencia de envases 
-//select *,(env_entregados-env_devueltos) as diferencia_envases  from (
-//select pp.id_producto,sum(pp.cantidad) as env_entregados  from pedido pdd, pedido_producto pp,contacto con, cliente cli
-//where pdd.id = pp.id_pedido and pdd.estado = 'entregado' and
-//pdd.rut_contacto_cliente = con.rut_contacto and con.rut_cliente = cli.rut
-//and cli.rut = 98437098 group by pp.id_producto) as entregas,
-//
-//(select id_producto, sum(cantidad_devuelta) as env_devueltos from pago_devolucion_envase pde, pedido pdd, contacto con, cliente cli
-//where pde.id_pedido = pdd.id and pdd.rut_contacto_cliente = con.rut_contacto
-//and con.rut_cliente = cli.rut and cli.rut = 98437098 group by id_producto) as devolucion
-//
-//where entregas.id_producto = devolucion.id_producto;
+
+            $query = $this->db->query("select id_pedido, cantidad_devuelta, to_char(fecha_devolucion,'DD-MM-YYYY - HH24:mi') fecha_devolucion , comentarios, factura, guia, comentario, nombre "
+                . "from devolucion_envase en, pedido pe, contacto co "
+                . "where en.id_pedido = pe.id and pe.id_contacto_cliente = co.id_contacto");
+            return $query;
+        }
+        if ($nombre_fun == 'verListaCliente') {
+
+            $query = $this->db->query("select * "
+                . " from cliente ");
+            return $query;
         }
         
     }

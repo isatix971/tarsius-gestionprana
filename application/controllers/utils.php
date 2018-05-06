@@ -47,7 +47,7 @@ class Utils extends CI_Controller {
             echo $this->utils_model->get_pedidosDespachador($q);
         }
     }
-
+    
     function get_rut_cliente_almacenado() {
         if (isset($_POST['rut'])) {
 //            echo $_GET['term'];
@@ -78,5 +78,17 @@ class Utils extends CI_Controller {
     function show() {
         $this->load->view('prueba'); //envío al usuario a la pag. de autenticación 
     }
+    
+    function get_estadisticasVendaDevolucion(){
+        $mes= date("m");
+        $ano = date("Y");
+        $mes2= $mes +1;
+
+        $fechaInicio = $ano."-".$mes."-01";
+        $fechaFinal = $ano."-".$mes2."-01";
+        echo $this->utils_model->get_estadisticasVendaDevolucion($fechaInicio,$fechaFinal);
+        
+    }
+    
 
 }

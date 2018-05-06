@@ -34,8 +34,8 @@ class Main extends CI_Controller {
             $tiempo_transcurrido = (strtotime($ahora) - strtotime($fechaGuardada));
 
             //comparamos el tiempo transcurrido 
-            if ($tiempo_transcurrido >= 36000) {
-                //si pasaron 10 minutos o más 
+            if ($tiempo_transcurrido >= 360000) {//tiempo de espera de sesion
+                
                 session_destroy(); // destruyo la sesión 
                 $this->load->view('login'); //envío al usuario a la pag. de autenticación 
                 //sino, actualizo la fecha de la sesión 
@@ -105,6 +105,7 @@ class Main extends CI_Controller {
                     $_SESSION["id"] = $valida->id;
                     $_SESSION["nombre"] = $valida->nombre;
                     $_SESSION["perfil"] = $valida->perfil;
+                    $_SESSION["correo"] = $valida->correo;
                     $_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
 
                     $this->load->view('main');

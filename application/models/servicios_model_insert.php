@@ -7,7 +7,9 @@ class Servicios_model_insert extends CI_Model {
         parent::__construct();
         $this->load->database();
         $this->load->model('utils_model');
-//        $this->gen_menu();
+        $this->load->model('envio_correos');
+        $this->load->library('email');
+
     }
 
     function almacenar($nombre_fun) {
@@ -229,14 +231,23 @@ class Servicios_model_insert extends CI_Model {
 //            id de producto es 1 que corresponde a los botellones de 20L
 
             $sql = "INSERT INTO devolucion_envase (id,id_pedido,id_producto,cantidad_devuelta,fecha_devolucion,comentarios,estado_pago)
-	VALUES (nextval('devolucion_envase_seq'::regclass),$idDespacho,1,$b20devueltos,now(),'$comentarios'"
+                    VALUES (nextval('devolucion_envase_seq'::regclass),$idDespacho,1,$b20devueltos,now(),'$comentarios'"
                     . ",'null')";
             $sql_update = "UPDATE pedido SET fecha_entrega=now(), estado='entregado',estado_pago = '$estadopago' WHERE id='$idDespacho'";
 
+            $sqlcorreo= "select correo from pedido pe, contacto co where co.id_contacto = pe.id_contacto_cliente and pe.id = '$idDespacho'";
+            
             try {
                 $result = $this->db->query($sql);
                 $result_update = $this->db->query($sql_update);
-
+                
+                $correo = "fail@correo.cl";
+                foreach ($this->db->query($sqlcorreo)->result() as $row)
+                {
+                        $correo= $row->correo;
+                }
+                $this->envio_correos->envio_correo_cierre_despacho($correo,$idDespacho,$b20devueltos);
+              
                 if (!$result) {
                     throw new Exception('error in query');
                     return false;

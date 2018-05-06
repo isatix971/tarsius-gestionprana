@@ -178,4 +178,37 @@ class Utils_model extends CI_Model {
             return json_encode($row_set); //format the array into json data
         }
     }
+    function get_estadisticasVendaDevolucion($fechaInicio,$fechaFinal){
+        $sql = "select sum(cantidad_devuelta) suma "
+                . "from devolucion_envase en, pedido pe "
+                . "where en.id_producto =1 and "
+                . "en.id_pedido = pe.id and "
+                . "en.fecha_devolucion  between date('$fechaInicio') and date('$fechaFinal')";
+        $sqlVenta= "select sum(cantidad) suma "
+                . "from pedido pe, pedido_producto pro "
+                . "where pe.id = pro.id_pedido and pro.id_producto = 1 and "
+                . "fecha_pedido between date('$fechaInicio') and date('$fechaFinal')";
+        
+        
+        try {
+            $query = $this->db->query($sql);
+            
+            if ($query->num_rows() > 0) {
+                foreach ($query->result_array() as $row) {
+                    $new_row['sumaDevolucion'] = htmlentities(stripslashes( $row['suma']));
+                }
+            }
+            $query2 = $this->db->query($sqlVenta);
+             if ($query2->num_rows() > 0) {
+                foreach ($query2->result_array() as $row) {
+                    $new_row['sumaVenta'] = htmlentities(stripslashes( $row['suma']));
+                }
+            }
+            $row_set[] = $new_row; //build an array
+            return json_encode($row_set); //format the array into json data
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 }

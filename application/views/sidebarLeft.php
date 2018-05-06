@@ -39,6 +39,8 @@
                     </li>
                     <li><a href="<?= base_url(); ?>index.php/main?op=agregarDireccionCliente">Agregar Direccion Clientes</a>
                     </li>
+                    <li><a href="<?= base_url(); ?>index.php/main?select=verListaCliente">Ver Lista Clientes</a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-dropdown">
@@ -49,6 +51,8 @@
                     <li><a href="<?= base_url(); ?>index.php/main?op=pedido">Realizar Pedidos</a>
                     </li>
                     <li><a href="<?= base_url(); ?>index.php/main?select=verPedidos">Estado Pedidos</a>
+                    </li>
+                    <li><a href="<?= base_url(); ?>index.php/main?select=verEnvasesDevueltos">Ver lista Devoluciones</a>
                     </li>
                 </ul>
             </li>

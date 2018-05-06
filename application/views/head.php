@@ -50,6 +50,11 @@
     <script src="<?= base_url(); ?>content-lab/assets/plugins/dataTables/js/jquery.dataTables.js"></script>
     <script src="<?= base_url(); ?>content-lab/assets/plugins/dataTables/js/dataTables.bootstrap.js"></script>
     
+    
+    <script src="<?= base_url(); ?>content-lab/assets/plugins/countTo/jquery.countTo.js"></script>
+    <script src="<?= base_url(); ?>content-lab/assets/plugins/weather/js/skycons.js"></script>
+
+    
   
     <script src="<?= base_url(); ?>content/js/validarut.js"></script>
 
@@ -100,8 +105,8 @@
         }
 
 //        seccion para correr script en el inicio de la carga del programa
-        $(document).ready(function () {
-
+        $(document).ready(function() {
+        
         });
 
         function validarClienteRut(element) {
