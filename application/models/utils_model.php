@@ -36,6 +36,21 @@ class Utils_model extends CI_Model {
             return json_encode($row_set); //format the array into json data
         }
     }
+    function get_info_contactos($q) {
+        $this->db->select('*');
+        $this->db->where('rut_cliente', $q);
+        $query = $this->db->get('contacto');
+        if ($query->num_rows() > 0) {
+            foreach ($query->result_array() as $row) {
+                $new_row['nombre'] = strtoupper(htmlentities(stripslashes($row['nombre'])));
+                $new_row['correo'] = strtoupper(htmlentities(stripslashes($row['correo'])));
+                $new_row['telefono'] = strtoupper(htmlentities(stripslashes($row['telefono'])));
+                $new_row['id'] = htmlentities(stripslashes($row['id_contacto']));
+                $row_set[] = $new_row; //build an array
+            }
+            return json_encode($row_set); //format the array into json data
+        }
+    }
 
     function get_despachador() {
 
