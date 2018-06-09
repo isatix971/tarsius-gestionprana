@@ -29,6 +29,13 @@ class Utils extends CI_Controller {
             echo $this->utils_model->get_contacto($q);
         }
     }
+    function get_info_contactos() {
+        if (isset($_POST['id'])) {
+            $q = $_POST['id'];
+            echo $this->utils_model->get_info_contactos($q);
+        }
+    }
+    
 
     function get_despachadores() {
 
